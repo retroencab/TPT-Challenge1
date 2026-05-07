@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prop Challenge Control Panel</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9; --color-surface-offset: #f3f0ec;
+      --color-border: #d4d1ca; --color-divider: #dcd9d5; --color-text: #28251d; --color-text-muted: #6a6862; --color-text-faint: #9f9c96;
+      --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-primary-highlight: #cedcd8; --color-success: #437a22; --color-warning: #964219; --color-error: #a12c7b;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.9rem; --radius-xl: 1.25rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06); --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08); --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+      --font-display: 'Cabinet Grotesk', 'Inter', sans-serif; --font-body: 'Satoshi', 'Inter', sans-serif;
+      --content-wide: 1200px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #22211f;
+      --color-border: #393836; --color-divider: #262523; --color-text: #ece9e2; --color-text-muted: #b0aca2; --color-text-faint: #7b776f;
+      --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-primary-highlight: #313b3b; --color-success: #76b44f; --color-warning: #d69262; --color-error: #d163a7;
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2); --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3); --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{min-height:100dvh;background:radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 18%, transparent), transparent 28%), var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.6}
+    img,svg{display:block;max-width:100%}
+    button,input,select,textarea{font:inherit;color:inherit}
+    button{cursor:pointer;border:none}
+    a{color:inherit}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .container{max-width:var(--content-wide);margin-inline:auto;padding:var(--space-4)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding-block:var(--space-4) var(--space-8)}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--color-primary),color-mix(in oklab,var(--color-primary) 36%, black));display:grid;place-items:center;box-shadow:var(--shadow-md)}
+    .brand h1{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05;letter-spacing:-0.03em}
+    .brand p{color:var(--color-text-muted);font-size:var(--text-sm)}
+    .theme-toggle{min-width:44px;min-height:44px;padding:var(--space-2);border-radius:var(--radius-full);background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
+    .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-6);align-items:stretch}
+    .panel{background:color-mix(in oklab,var(--color-surface) 86%, transparent);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);backdrop-filter:blur(14px)}
+    .hero-main{padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5)}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-3);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;border-radius:var(--radius-full);width:max-content;text-transform:uppercase;letter-spacing:.08em}
+    .hero-main h2{font-family:var(--font-display);font-size:var(--text-2xl);line-height:0.95;max-width:14ch;letter-spacing:-0.05em}
+    .hero-main p{max-width:60ch;color:var(--color-text-muted)}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+    .stat{padding:var(--space-4);background:var(--color-surface-offset);border-radius:var(--radius-lg);border:1px solid color-mix(in oklab,var(--color-text) 8%, transparent)}
+    .stat label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);display:block;margin-bottom:var(--space-2)}
+    .stat strong{font-size:var(--text-lg);font-variant-numeric:tabular-nums}
+    .hero-side{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)}
+    .section{margin-top:var(--space-6);display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6)}
+    .stack{display:grid;gap:var(--space-6)}
+    .card{padding:var(--space-6)}
+    .card h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2);letter-spacing:-0.02em}
+    .card p.lead{color:var(--color-text-muted);margin-bottom:var(--space-5)}
+    .grid-2,.grid-3{display:grid;gap:var(--space-4)}
+    .grid-2{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)}
+    .field{display:grid;gap:var(--space-2)}
+    .field label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);font-weight:700}
+    input,select,textarea{width:100%;background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 12%, transparent);border-radius:var(--radius-md);padding:.85rem 1rem;min-height:46px}
+    textarea{min-height:110px;resize:vertical}
+    .btn-row{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-4)}
+    .btn{min-height:46px;padding:.8rem 1.1rem;border-radius:var(--radius-md);font-weight:700}
+    .btn-primary{background:var(--color-primary);color:#f4fbfb}.btn-primary:hover{background:var(--color-primary-hover)}
+    .btn-secondary{background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
+    .mini{padding:var(--space-4);background:var(--color-surface-offset);border-radius:var(--radius-lg);border:1px solid color-mix(in oklab,var(--color-text) 8%, transparent)}
+    .mini strong{display:block;font-size:var(--text-lg);font-variant-numeric:tabular-nums}
+    .mini span{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .checklist{display:grid;gap:var(--space-3)}
+    .check{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-3);background:var(--color-surface-offset);border-radius:var(--radius-md)}
+    .check input{width:20px;height:20px;min-height:auto;margin-top:3px}
+    .progress-shell{height:14px;background:var(--color-surface-offset);border-radius:var(--radius-full);overflow:hidden;border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
+    .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--color-primary),color-mix(in oklab,var(--color-success) 65%, var(--color-primary)));transition:width .25s ease}
+    .alert{padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm);background:color-mix(in oklab,var(--color-warning) 14%, var(--color-surface-offset));border:1px solid color-mix(in oklab,var(--color-warning) 35%, transparent)}
+    .alert.good{background:color-mix(in oklab,var(--color-success) 14%, var(--color-surface-offset));border-color:color-mix(in oklab,var(--color-success) 35%, transparent)}
+    .alert.bad{background:color-mix(in oklab,var(--color-error) 14%, var(--color-surface-offset));border-color:color-mix(in oklab,var(--color-error) 35%, transparent)}
+    table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+    th,td{text-align:left;padding:.8rem .6rem;border-bottom:1px solid var(--color-divider);vertical-align:top}
+    th{color:var(--color-text-muted);font-weight:700;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .6rem;border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:700;background:var(--color-primary-highlight);color:var(--color-primary)}
+    .footer-note{margin:var(--space-6) 0 var(--space-10);color:var(--color-text-muted);font-size:var(--text-sm)}
+    @media (max-width: 1024px){.hero,.section{grid-template-columns:1fr}.stat-grid,.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 680px){.stat-grid,.grid-2,.grid-3{grid-template-columns:1fr}.hero-main{padding:var(--space-6)}.card{padding:var(--space-5)}.topbar{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Challenge logo">
+            <path d="M10 32 24 12l14 20"/>
+            <path d="M18 32h12"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Prop Challenge Control Panel</h1>
+          <p>Take Profit Trader · 25K · MNQ-first · Conservative mode built in</p>
+        </div>
+      </div>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">☀️</button>
+    </header>
+
+    <section class="hero">
+      <div class="panel hero-main">
+        <span class="eyebrow">Monday start plan</span>
+        <h2>Practice TradingView now. Start the challenge next week.</h2>
+        <p>This workspace is built around your actual rules: start with a $25,000 evaluation, keep the account above $23,500, trade primarily MNQ, limit the session to 9:30 AM through noon ET, and default to a conservative preservation mode if balance pressure increases.</p>
+        <div class="stat-grid">
+          <div class="stat"><label>Starting balance</label><strong id="startingBalanceView">$25,000</strong></div>
+          <div class="stat"><label>Minimum allowed</label><strong id="minBalanceView">$23,500</strong></div>
+          <div class="stat"><label>Profit target</label><strong id="targetView">$1,500</strong></div>
+          <div class="stat"><label>Trading days</label><strong>5 chosen days</strong></div>
+        </div>
+      </div>
+      <div class="panel hero-side">
+        <div class="mini"><strong id="recommendedRisk">$150 daily stop</strong><span>Base setting for 1 MNQ, designed to protect the account while leaving room for 2 to 3 quality attempts.</span></div>
+        <div class="mini"><strong id="paceTarget">$300/day target pace</strong><span>Average pace needed to reach $1,500 over 5 trading days without pressing size too early.</span></div>
+        <div class="mini"><strong>2 to 3 max trades</strong><span>Enough for selective execution, but low enough to block revenge trades and over-management.</span></div>
+        <div class="mini"><strong>Preservation trigger: $24,100</strong><span>When cushion shrinks, switch to more conservative rules and treat protection as the primary objective.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stack">
+        <article class="panel card">
+          <h3>Challenge tracker</h3>
+          <p class="lead">Update the fields below before each session. The panel recalculates distance to target, distance to floor, and whether preservation mode should take over.</p>
+          <div class="grid-3">
+            <div class="field"><label for="currentBalance">Current balance</label><input id="currentBalance" type="number" value="25000" step="10"></div>
+            <div class="field"><label for="dayCount">Trading day count</label><select id="dayCount"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+            <div class="field"><label for="todayPnL">Today's realized P&L</label><input id="todayPnL" type="number" value="0" step="10"></div>
+          </div>
+          <div style="margin-top:var(--space-5);display:grid;gap:var(--space-3)">
+            <div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div>
+            <div class="grid-3">
+              <div class="mini"><strong id="targetLeft">$1,500 left</strong><span>Remaining to pass</span></div>
+              <div class="mini"><strong id="floorLeft">$1,500 buffer</strong><span>Room above minimum balance</span></div>
+              <div class="mini"><strong id="dailyPaceNeed">$300/day needed</strong><span>Needed across remaining days</span></div>
+            </div>
+            <div id="statusAlert" class="alert">Stable zone. Stay selective and protect the first green day.</div>
+          </div>
+        </article>
+
+        <article class="panel card">
+          <h3>Premarket plan</h3>
+          <p class="lead">Use this before the open so the plan exists before emotions do.</p>
+          <div class="grid-2">
+            <div class="field"><label for="bias">Bias</label><select id="bias"><option>Neutral until proven</option><option>Long bias</option><option>Short bias</option><option>Range / no-trade unless breakout</option></select></div>
+            <div class="field"><label for="setupType">Primary setup</label><select id="setupType"><option>Breakout + retest</option><option>VWAP continuation</option><option>Liquidity sweep + reclaim</option><option>Opening drive continuation</option><option>No setup yet</option></select></div>
+            <div class="field"><label for="contracts">Planned contracts</label><select id="contracts"><option>1 MNQ</option><option>2 MNQ</option><option>1 MYM</option><option>2 MYM</option><option>3 MYM</option></select></div>
+            <div class="field"><label for="maxTrades">Max trades today</label><select id="maxTrades"><option>2</option><option selected>3</option></select></div>
+          </div>
+          <div class="grid-2" style="margin-top:var(--space-4)">
+            <div class="field"><label for="riskPerTrade">Planned risk per trade ($)</label><input id="riskPerTrade" type="number" value="60" step="5"></div>
+            <div class="field"><label for="dailyStop">Daily stop ($)</label><input id="dailyStop" type="number" value="150" step="10"></div>
+          </div>
+          <div class="field" style="margin-top:var(--space-4)"><label for="levels">Key levels and invalidation</label><textarea id="levels" placeholder="Example: OR high, OR low, VWAP, overnight high/low, invalidation if price accepts back inside range after failed expansion."></textarea></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="evaluateRisk">Recalculate risk posture</button>
+            <button class="btn btn-secondary" id="fillPracticePlan">Load Thursday-Friday practice mode</button>
+          </div>
+        </article>
+
+        <article class="panel card">
+          <h3>Rule gate</h3>
+          <p class="lead">No trade unless these are true. This section is designed around your recurring weak points.</p>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"><span><strong>Clear trend or clean post-breakout structure.</strong><br> If structure is muddy, the correct trade is no trade.</span></label>
+            <label class="check"><input type="checkbox"><span><strong>Safe entry defined before clicking.</strong><br> Entry, stop, and target must be known in advance.</span></label>
+            <label class="check"><input type="checkbox"><span><strong>Stop trading by noon ET.</strong><br> Green or red, the session ends on schedule.</span></label>
+            <label class="check"><input type="checkbox"><span><strong>Preservation mode accepted if needed.</strong><br> If cushion shrinks, switch from offense to protection.</span></label>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="panel card">
+          <h3>Risk model</h3>
+          <p class="lead">These numbers are baked in so you can internalize them fast.</p>
+          <div class="grid-2">
+            <div class="mini"><strong>$150 daily stop is reasonable</strong><span>At 1 MNQ, it is conservative enough to keep one sloppy session from damaging the whole challenge.</span></div>
+            <div class="mini"><strong>1 MNQ is the default</strong><span>Use 2 MNQ only when the setup is unusually clean and the stop still fits the risk cap.</span></div>
+            <div class="mini"><strong>2 to 3 trades max</strong><span>That suits your need for selective execution and guards against chasing.</span></div>
+            <div class="mini"><strong>MYM is recovery, not impulse</strong><span>Use it only when preservation mode is active or volatility makes MNQ too expensive.</span></div>
+          </div>
+          <div style="margin-top:var(--space-4)" id="riskFeedback" class="alert good">Base posture looks balanced: $150 daily stop, about $50 to $75 planned risk per trade, and no more than 3 trades keeps you controlled without making the target impossible.</div>
+        </article>
+
+        <article class="panel card">
+          <h3>Pacing model</h3>
+          <p class="lead">The challenge needs aggression with structure, not random pressure.</p>
+          <table>
+            <thead><tr><th>Day</th><th>Goal</th><th>Interpretation</th></tr></thead>
+            <tbody>
+              <tr><td>Day 1</td><td>$200-$300</td><td>Start clean, learn the platform, do not force the full target pace on first contact.</td></tr>
+              <tr><td>Day 2</td><td>$250-$350</td><td>Press only if execution quality was good on Day 1.</td></tr>
+              <tr><td>Day 3</td><td>$300-$350</td><td>This is where the challenge should begin to feel attainable.</td></tr>
+              <tr><td>Day 4</td><td>$300-$400</td><td>Stay with quality; do not size up out of impatience.</td></tr>
+              <tr><td>Day 5</td><td>Finish what remains</td><td>Use the scoreboard, not emotion, to decide whether offense is needed.</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="panel card">
+          <h3>TradingView transition</h3>
+          <p class="lead">Your decision to delay the challenge until next week is smart because TradingView execution is still new to you.</p>
+          <div class="checklist">
+            <div class="check"><span><strong>Thursday:</strong> Practice order entry, stop placement, target modification, and panel navigation after your normal trading.</span></div>
+            <div class="check"><span><strong>Friday:</strong> Repeat the same routine and simulate one full challenge-style session on demo.</span></div>
+            <div class="check"><span><strong>Monday onward:</strong> Use the actual prop TradingView account after confirming connection, credentials, and demo-to-live workflow details.</span></div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-secondary" href="https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15173215468061-Connecting-TradingView-with-Your-CQG-Account" target="_blank" rel="noopener noreferrer">TPT TradingView connection guide</a>
+            <a class="btn btn-secondary" href="https://www.tradingview.com/support/solutions/43000516466-paper-trading-main-functionality/" target="_blank" rel="noopener noreferrer">TradingView paper trading guide</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stack">
+        <article class="panel card">
+          <h3>Trade log</h3>
+          <p class="lead">Use one line per completed trade. The table is intentionally simple so you actually use it.</p>
+          <div class="grid-3">
+            <div class="field"><label for="logInstrument">Instrument</label><select id="logInstrument"><option>MNQ</option><option>MYM</option></select></div>
+            <div class="field"><label for="logContracts">Contracts</label><select id="logContracts"><option>1</option><option>2</option><option>3</option></select></div>
+            <div class="field"><label for="logSetup">Setup</label><input id="logSetup" type="text" placeholder="VWAP reclaim"></div>
+            <div class="field"><label for="logEntry">Entry</label><input id="logEntry" type="number" step="0.25"></div>
+            <div class="field"><label for="logExit">Exit</label><input id="logExit" type="number" step="0.25"></div>
+            <div class="field"><label for="logSide">Side</label><select id="logSide"><option>Long</option><option>Short</option></select></div>
+          </div>
+          <div class="field" style="margin-top:var(--space-4)"><label for="logNote">Lesson or mistake tag</label><input id="logNote" type="text" placeholder="A+ pullback, early exit, chased, ignored trend, preserved capital"></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="addTrade">Add trade</button>
+            <button class="btn btn-secondary" id="clearTrades">Clear table</button>
+          </div>
+          <div style="margin-top:var(--space-4);overflow:auto">
+            <table id="tradeTable">
+              <thead><tr><th>#</th><th>Instrument</th><th>Contracts</th><th>Setup</th><th>Side</th><th>Points</th><th>P&L</th><th>Note</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="panel card">
+          <h3>End-of-day review</h3>
+          <p class="lead">This is where discipline gets reinforced instead of forgotten.</p>
+          <div class="field"><label for="review">Review notes</label><textarea id="review" placeholder="What did I do well? Where did I press? Did I stay objective? Did I stop on time? What will I repeat or tighten tomorrow?"></textarea></div>
+          <div class="grid-2" style="margin-top:var(--space-4)">
+            <div class="mini"><strong>Best habit to reinforce</strong><span>Wait for clean structure and execute the first good plan, not the first moving candle.</span></div>
+            <div class="mini"><strong>Biggest thing to avoid</strong><span>Trying to make the whole $1,500 mentally in one day instead of following the 5-day pace.</span></div>
+          </div>
+        </article>
+
+        <article class="panel card">
+          <h3>Conservative mode</h3>
+          <p class="lead">This section becomes your fallback when balance pressure rises.</p>
+          <div class="checklist">
+            <div class="check"><span><strong>Primary instrument:</strong> MYM or 1 MNQ only.</span></div>
+            <div class="check"><span><strong>Max daily risk:</strong> Stay at or below the base $150 cap unless later data proves a better threshold.</span></div>
+            <div class="check"><span><strong>Max trades:</strong> 2, not 3.</span></div>
+            <div class="check"><span><strong>Primary objective:</strong> protect the cushion first, rebuild confidence second, then resume offense.</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer-note">Use Thursday and Friday as platform practice days. Start the actual challenge Monday only after the TradingView connection and order workflow feel routine.</p>
+  </div>
+
+  <script>
+    const qs = s => document.querySelector(s);
+    const currentBalance = qs('#currentBalance');
+    const dayCount = qs('#dayCount');
+    const todayPnL = qs('#todayPnL');
+    const progressBar = qs('#progressBar');
+    const targetLeft = qs('#targetLeft');
+    const floorLeft = qs('#floorLeft');
+    const dailyPaceNeed = qs('#dailyPaceNeed');
+    const statusAlert = qs('#statusAlert');
+    const riskFeedback = qs('#riskFeedback');
+    const dailyStop = qs('#dailyStop');
+    const riskPerTrade = qs('#riskPerTrade');
+    const maxTrades = qs('#maxTrades');
+    const contracts = qs('#contracts');
+
+    const start = 25000;
+    const floor = 23500;
+    const targetProfit = 1500;
+    const preservationTrigger = 24100;
+
+    function money(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n)}
+
+    function updateTracker(){
+      const bal = Number(currentBalance.value || start);
+      const usedDays = Number(dayCount.value || 0);
+      const pnlFromStart = bal - start;
+      const left = Math.max(0, targetProfit - pnlFromStart);
+      const buffer = bal - floor;
+      const remainingDays = Math.max(1, 5 - usedDays);
+      const neededPerDay = left / remainingDays;
+      const progress = Math.max(0, Math.min(100, (pnlFromStart / targetProfit) * 100));
+
+      progressBar.style.width = `${progress}%`;
+      targetLeft.textContent = `${money(left)} left`;
+      floorLeft.textContent = `${money(buffer)} buffer`;
+      dailyPaceNeed.textContent = `${money(Math.ceil(neededPerDay/10)*10)}/day needed`;
+
+      if (bal <= floor) {
+        statusAlert.className = 'alert bad';
+        statusAlert.textContent = 'Hard stop zone. The balance is at or below the minimum threshold.';
+      } else if (bal <= preservationTrigger) {
+        statusAlert.className = 'alert';
+        statusAlert.textContent = 'Preservation mode is active. Reduce heat, consider MYM or 1 MNQ, and focus on staying in the challenge.';
+      } else if (pnlFromStart >= 0) {
+        statusAlert.className = 'alert good';
+        statusAlert.textContent = 'Stable zone. Protect green days and keep the challenge on a steady pace.';
+      } else {
+        statusAlert.className = 'alert';
+        statusAlert.textContent = 'Minor drawdown zone. Slow down and avoid trying to win it all back in one session.';
+      }
+    }
+
+    function evaluateRiskModel(){
+      const stop = Number(dailyStop.value || 150);
+      const r = Number(riskPerTrade.value || 60);
+      const t = Number(maxTrades.value || 3);
+      const c = contracts.value;
+      let msg = '';
+      let cls = 'alert good';
+
+      if (r * t > stop) {
+        cls = 'alert bad';
+        msg = 'Planned per-trade risk is too high for the current daily stop. Tighten risk per trade, lower max trades, or both.';
+      } else if (c === '2 MNQ' && r > 75) {
+        cls = 'alert';
+        msg = 'Two MNQ contracts can still work, but only if the setup is unusually clean and the stop remains tightly controlled.';
+      } else if (stop < 120) {
+        cls = 'alert';
+        msg = 'This daily stop is very tight. It protects the account, but it may make the challenge harder if one normal loss ends the day too early.';
+      } else if (stop <= 175) {
+        msg = 'Base posture looks balanced: $150 daily stop, about $50 to $75 planned risk per trade, and no more than 3 trades keeps you controlled without making the target impossible.';
+      } else {
+        cls = 'alert';
+        msg = 'This is still workable, but a looser stop reduces discipline pressure. Make sure it does not reopen the door to chasing.';
+      }
+      riskFeedback.className = cls;
+      riskFeedback.textContent = msg;
+    }
+
+    qs('#evaluateRisk').addEventListener('click', () => { updateTracker(); evaluateRiskModel(); });
+    [currentBalance, dayCount, todayPnL, dailyStop, riskPerTrade, maxTrades].forEach(el => el.addEventListener('input', updateTracker));
+    [dailyStop, riskPerTrade, maxTrades, contracts].forEach(el => el.addEventListener('input', evaluateRiskModel));
+
+    qs('#fillPracticePlan').addEventListener('click', () => {
+      qs('#bias').value = 'Neutral until proven';
+      qs('#setupType').value = 'No setup yet';
+      qs('#contracts').value = '1 MNQ';
+      qs('#riskPerTrade').value = 50;
+      qs('#dailyStop').value = 150;
+      qs('#levels').value = 'Thursday-Friday practice: rehearse order entry, bracket order edits, chart trading buttons, stop movement, cancel-all workflow, and session shutdown by noon ET.';
+      evaluateRiskModel();
+    });
+
+    const tradeBody = qs('#tradeTable tbody');
+    let tradeCount = 0;
+    qs('#addTrade').addEventListener('click', () => {
+      const instrument = qs('#logInstrument').value;
+      const qty = Number(qs('#logContracts').value || 1);
+      const setup = qs('#logSetup').value || '—';
+      const entry = Number(qs('#logEntry').value || 0);
+      const exit = Number(qs('#logExit').value || 0);
+      const side = qs('#logSide').value;
+      const note = qs('#logNote').value || '—';
+      const pointValue = instrument === 'MNQ' ? 2 : 0.5;
+      const pts = side === 'Long' ? (exit - entry) : (entry - exit);
+      const pnl = pts * pointValue * qty;
+      tradeCount += 1;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${tradeCount}</td><td>${instrument}</td><td>${qty}</td><td>${setup}</td><td>${side}</td><td>${pts.toFixed(2)}</td><td>${money(pnl)}</td><td>${note}</td>`;
+      tradeBody.appendChild(tr);
+      const newBal = Number(currentBalance.value || start) + pnl;
+      currentBalance.value = Math.round(newBal);
+      updateTracker();
+    });
+
+    qs('#clearTrades').addEventListener('click', () => { tradeBody.innerHTML = ''; tradeCount = 0; });
+
+    const toggle = qs('[data-theme-toggle]');
+    let theme = 'dark';
+    function syncToggle(){ toggle.textContent = theme === 'dark' ? '☀️' : '🌙'; toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`); }
+    toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', theme); syncToggle(); });
+    syncToggle();
+    updateTracker();
+    evaluateRiskModel();
+  </script>
+</body>
+</html>
