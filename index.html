@@ -102,7 +102,7 @@
         </div>
         <div>
           <h1>Prop Challenge Control Panel</h1>
-          <p>Take Profit Trader · 25K · MNQ-first · Conservative mode built in</p>
+          <p>Take Profit Trader · 25K · MNQ-first · EOD drawdown + consistency rules</p>
         </div>
       </div>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">☀️</button>
@@ -112,7 +112,7 @@
       <div class="panel hero-main">
         <span class="eyebrow">Monday start plan</span>
         <h2>Practice TradingView now. Start the challenge next week.</h2>
-        <p>This workspace is built around your actual rules: start with a $25,000 evaluation, keep the account above $23,500, trade primarily MNQ, limit the session to 9:30 AM through noon ET, and default to a conservative preservation mode if balance pressure increases.</p>
+        <p>This workspace is built around your actual rules: start with a $25,000 evaluation, keep the account above the trailing minimum, protect against a first-day profit concentration above 50 percent, trade primarily MNQ, and use the approved hours window with a hard close at 5 PM ET.</p>
         <div class="stat-grid">
           <div class="stat"><label>Starting balance</label><strong id="startingBalanceView">$25,000</strong></div>
           <div class="stat"><label>Minimum allowed</label><strong id="minBalanceView">$23,500</strong></div>
@@ -122,9 +122,10 @@
       </div>
       <div class="panel hero-side">
         <div class="mini"><strong id="recommendedRisk">$150 daily stop</strong><span>Base setting for 1 MNQ, designed to protect the account while leaving room for 2 to 3 quality attempts.</span></div>
+        <div class="mini"><strong>Approved hours</strong><span>Trade only from 6 PM ET to 5 PM ET; close all positions before 5 PM ET.</span></div>
         <div class="mini"><strong id="paceTarget">$300/day target pace</strong><span>Average pace needed to reach $1,500 over 5 trading days without pressing size too early.</span></div>
         <div class="mini"><strong>2 to 3 max trades</strong><span>Enough for selective execution, but low enough to block revenge trades and over-management.</span></div>
-        <div class="mini"><strong>Preservation trigger: $24,100</strong><span>When cushion shrinks, switch to more conservative rules and treat protection as the primary objective.</span></div>
+        <div class="mini"><strong>Consistency watch</strong><span>Day 1 should stay below half of the $1,500 target unless later days lift the total enough to keep the best day under 50 percent.</span></div>
       </div>
     </section>
 
@@ -145,7 +146,7 @@
               <div class="mini"><strong id="floorLeft">$1,500 buffer</strong><span>Room above minimum balance</span></div>
               <div class="mini"><strong id="dailyPaceNeed">$300/day needed</strong><span>Needed across remaining days</span></div>
             </div>
-            <div id="statusAlert" class="alert">Stable zone. Stay selective and protect the first green day.</div>
+            <div id="statusAlert" class="alert">Stable zone. Stay selective, respect the EOD floor, and keep Day 1 under the 50 percent cap.</div>
           </div>
         </article>
 
@@ -299,6 +300,7 @@
     const floor = 23500;
     const targetProfit = 1500;
     const preservationTrigger = 24100;
+    const dayOneCap = 750;
 
     function money(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n)}
 
@@ -317,9 +319,13 @@
       floorLeft.textContent = `${money(buffer)} buffer`;
       dailyPaceNeed.textContent = `${money(Math.ceil(neededPerDay/10)*10)}/day needed`;
 
+      const day1Profit = Number(todayPnL.value || 0);
       if (bal <= floor) {
         statusAlert.className = 'alert bad';
         statusAlert.textContent = 'Hard stop zone. The balance is at or below the minimum threshold.';
+      } else if (usedDays === 0 && day1Profit >= dayOneCap) {
+        statusAlert.className = 'alert';
+        statusAlert.textContent = 'Day 1 concentration warning: you are approaching the 50 percent consistency cap for the evaluation.';
       } else if (bal <= preservationTrigger) {
         statusAlert.className = 'alert';
         statusAlert.textContent = 'Preservation mode is active. Reduce heat, consider MYM or 1 MNQ, and focus on staying in the challenge.';
@@ -369,9 +375,15 @@
       qs('#contracts').value = '1 MNQ';
       qs('#riskPerTrade').value = 50;
       qs('#dailyStop').value = 150;
-      qs('#levels').value = 'Thursday-Friday practice: rehearse order entry, bracket order edits, chart trading buttons, stop movement, cancel-all workflow, and session shutdown by noon ET.';
+      qs('#levels').value = 'Thursday-Friday practice: rehearse order entry, bracket order edits, chart trading buttons, stop movement, cancel-all workflow, and session shutdown by 5 PM ET.';
       evaluateRiskModel();
     });
+
+    const consistencyNote = document.createElement('div');
+    consistencyNote.className = 'alert';
+    consistencyNote.style.marginTop = 'var(--space-4)';
+    consistencyNote.textContent = 'Consistency rule reminder: keep your best day under 50 percent of total evaluation profit.';
+    document.querySelector('.hero-side').appendChild(consistencyNote);
 
     const tradeBody = qs('#tradeTable tbody');
     let tradeCount = 0;
