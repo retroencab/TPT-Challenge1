@@ -108,7 +108,7 @@
         </div>
         <div>
           <h1>Prop Challenge Control Panel</h1>
-          <p>Day 3 update build · open timeline · drawdown-aware reset · MNQ-first</p>
+          <p>Reset build · 50K account · open timeline · drawdown-aware</p>
         </div>
       </div>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">☀️</button>
@@ -116,30 +116,30 @@
 
     <section class="hero">
       <div class="panel hero-main">
-        <span class="eyebrow">Day 3 update</span>
-        <h2>Red Day 3 means the priority shifts back to rebuilding cleanly, not swinging for a single rescue day.</h2>
-        <p>This version is tuned around your updated state after Day 3 closed at a realized loss of $537.50. The panel now keeps the remaining target, reduced buffer, and consistency path visible without forcing an arbitrary countdown, so the focus stays on valid execution rather than racing a 5-day clock.</p>
+        <span class="eyebrow">Reset parameters</span>
+        <h2>Challenge reset to a 50K account with a 3K profit target and a hard floor at 48K.</h2>
+        <p>This version reflects your new prop rules: 50% consistency cap, minimum 5 trading days, and no maximum day count. The panel now emphasizes target progress, floor buffer, and consistency health without forcing a deadline.</p>
         <div class="stat-grid">
-          <div class="stat"><label>Current balance</label><strong id="startingBalanceView">$24,655.50</strong></div>
-          <div class="stat"><label>Minimum allowed</label><strong id="minBalanceView">$23,500.00</strong></div>
-          <div class="stat"><label>Base profit target left</label><strong id="targetView">$1,844.50</strong></div>
-          <div class="stat"><label>Trading days logged</label><strong id="dayCountHero">3 days</strong></div>
+          <div class="stat"><label>Starting balance</label><strong id="startingBalanceView">$50,000.00</strong></div>
+          <div class="stat"><label>Minimum allowed</label><strong id="minBalanceView">$48,000.00</strong></div>
+          <div class="stat"><label>Profit target left</label><strong id="targetView">$3,000.00</strong></div>
+          <div class="stat"><label>Trading days logged</label><strong id="dayCountHero">0 days</strong></div>
         </div>
       </div>
       <div class="panel hero-side">
         <div class="focus-card">
           <div class="label">Remaining challenge target</div>
-          <div class="value" id="focusDailyTarget">$1,845</div>
-          <div class="sub">There is no fixed deadline in this version. The job is to rebuild net profit while preserving floor buffer and staying inside consistency limits.</div>
+          <div class="value" id="focusDailyTarget">$3,000</div>
+          <div class="sub">There is no fixed finish date. The job is to reach the profit target while staying above the 48K floor and keeping the largest winning day under 50% of total net profit.</div>
           <div class="days-strip">
-            <div class="day-pill"><small>Target left</small><strong id="day4Goal">$1,845</strong></div>
-            <div class="day-pill"><small>Floor buffer</small><strong id="bufferGoal">$1,156</strong></div>
-            <div class="day-pill"><small>Best day</small><strong id="day5Goal">$732</strong></div>
+            <div class="day-pill"><small>Target left</small><strong id="day4Goal">$3,000</strong></div>
+            <div class="day-pill"><small>Floor buffer</small><strong id="bufferGoal">$2,000</strong></div>
+            <div class="day-pill"><small>Best day</small><strong id="day5Goal">$0</strong></div>
           </div>
         </div>
-        <div class="mini"><strong id="recommendedRisk">Reset posture: quality first, size second</strong><span>After a red day, the edge is selective aggression only when the setup quality is obvious and the stop makes sense in dollars.</span></div>
-        <div class="mini"><strong>Consistency trigger</strong><span>Your biggest winning day still must stay under 50% of total net challenge profit. A late oversized winner can create a new rule problem even if the P&amp;L improves.</span></div>
-        <div class="mini"><strong id="paceTarget">No fixed daily pace</strong><span>The panel now prioritizes target left, floor buffer, and consistency status instead of forcing a per-day quota.</span></div>
+        <div class="mini"><strong id="recommendedRisk">Reset posture: quality first, size second</strong><span>After a reset, the edge is selective aggression only when the setup quality is obvious and the stop makes sense in dollars.</span></div>
+        <div class="mini"><strong>Consistency trigger</strong><span>Your biggest winning day must stay under 50% of total net challenge profit. If total net profit is not yet positive, consistency is not the active fail condition.</span></div>
+        <div class="mini"><strong id="paceTarget">Minimum 5 trading days</strong><span>You must trade at least 5 days. There is no maximum day count, so the panel focuses on target left, floor buffer, and consistency status.</span></div>
         <div class="mini"><strong>Platform risk reminder</strong><span>NT8 unrealized P&amp;L may display in points, not dollars. Confirm units before entering any stop you think is acceptable in dollar terms.</span></div>
       </div>
     </section>
@@ -148,28 +148,28 @@
       <div class="stack">
         <article class="panel card">
           <h3>Challenge tracker</h3>
-          <p class="lead">This is now tuned for your updated Day 3 state with no hard challenge deadline. The important variables are target left, floor buffer, and consistency posture.</p>
+          <p class="lead">This is now tuned for your reset state: 50K account, 3K target, 48K floor, 5-day minimum, and no max day count.</p>
           <div class="grid-4">
-            <div class="field"><label for="currentBalance">Current balance</label><input id="currentBalance" type="number" value="24655.5" step="0.5"></div>
-            <div class="field"><label for="dayCount">Trading days logged</label><select id="dayCount"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
-            <div class="field"><label for="todayPnL">Today's realized gross P&amp;L</label><input id="todayPnL" type="number" value="-537.5" step="0.5"></div>
-            <div class="field"><label for="bestDayProfit">Best winning day</label><input id="bestDayProfit" type="number" value="731.5" step="0.5"></div>
+            <div class="field"><label for="currentBalance">Current balance</label><input id="currentBalance" type="number" value="50000" step="0.5"></div>
+            <div class="field"><label for="dayCount">Trading days logged</label><select id="dayCount"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+            <div class="field"><label for="todayPnL">Today's realized gross P&amp;L</label><input id="todayPnL" type="number" value="0" step="0.5"></div>
+            <div class="field"><label for="bestDayProfit">Best winning day</label><input id="bestDayProfit" type="number" value="0" step="0.5"></div>
           </div>
           <div style="margin-top:var(--space-5);display:grid;gap:var(--space-3)">
             <div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div>
             <div class="grid-4">
-              <div class="mini"><strong id="targetLeft">$1,844.50 left</strong><span>Remaining to pass</span></div>
-              <div class="mini"><strong id="floorLeft">$1,155.50 buffer</strong><span>Room above minimum balance</span></div>
-              <div class="mini"><strong id="dailyPaceNeed">No daily quota</strong><span>Open timeline challenge structure</span></div>
+              <div class="mini"><strong id="targetLeft">$3,000.00 left</strong><span>Remaining to pass</span></div>
+              <div class="mini"><strong id="floorLeft">$2,000.00 buffer</strong><span>Room above minimum balance</span></div>
+              <div class="mini"><strong id="dailyPaceNeed">Minimum 5 trading days</strong><span>Open timeline challenge structure</span></div>
               <div class="mini"><strong id="adjustedTargetView">Laser focus: protect buffer</strong><span>Primary metric is execution quality with preserved buying power</span></div>
             </div>
-            <div id="statusAlert" class="alert bad">Red Day 3 reduced your cushion, but there is no need to compress recovery into a fixed number of sessions. Focus on clean execution and capital protection.</div>
+            <div id="statusAlert" class="alert">The reset is clean: the priority is to build toward the target without violating the 48K floor or forcing any single oversized day.</div>
           </div>
         </article>
 
         <article class="panel card">
           <h3>Pre-market checks</h3>
-          <p class="lead">These stay focused on clean execution, level awareness, and preventing revenge behavior while you work through the challenge on an open timeline.</p>
+          <p class="lead">These stay focused on clean execution, level awareness, and preventing revenge behavior while you work through the reset challenge on an open timeline.</p>
           <div class="checklist">
             <label class="check"><input type="checkbox"><span><strong>Mark levels in TradingView.</strong><br>Overnight high/low, opening range, VWAP, prior day key levels, and obvious liquidity zones.</span></label>
             <label class="check"><input type="checkbox"><span><strong>Confirm trend on the chart.</strong><br>Direction first, setup second. No countertrend impulse trades without a strong reclaim or failure structure.</span></label>
@@ -184,15 +184,15 @@
 
         <article class="panel card">
           <h3>Trade review loaded</h3>
-          <p class="lead">Your Day 3 fill list is now reconstructed into matched round trips using FIFO inventory logic for MNQ at $2 per point per contract.</p>
+          <p class="lead">This section remains ready for your trade logs, but the reset state starts with a clean slate.</p>
           <div class="grid-3">
-            <div class="mini"><strong id="tradeCountView">11 round trips</strong><span>Chronological matching from the fills you sent</span></div>
-            <div class="mini"><strong id="grossPnLView">-$537.50</strong><span>Gross profit from Day 3 trade data</span></div>
-            <div class="mini"><strong id="largestLossView">-$349.00</strong><span>Largest realized loss in the reconstructed sequence</span></div>
+            <div class="mini"><strong id="tradeCountView">0 round trips</strong><span>Chronological matching from your next fills</span></div>
+            <div class="mini"><strong id="grossPnLView">$0.00</strong><span>Gross profit for the current reset cycle</span></div>
+            <div class="mini"><strong id="largestLossView">$0.00</strong><span>Largest realized loss in the current sequence</span></div>
           </div>
           <div class="note-box" style="margin-top:var(--space-4)">
             <strong>Loaded review note:</strong>
-            <p style="margin-top:var(--space-2);color:var(--color-text-muted)">The biggest damage came from the early long getting liquidated into the 10:21 flush. Later trades improved execution quality, but the loss means the next edge is strict selectivity and better damage control on the first losing sequence.</p>
+            <p style="margin-top:var(--space-2);color:var(--color-text-muted)">The reset clears the old challenge state. Use this cycle to build cleanly, keep risk controlled, and avoid letting any one session dominate the account trajectory.</p>
           </div>
         </article>
       </div>
@@ -201,10 +201,10 @@
         <article class="panel card">
           <h3>Finish plan</h3>
           <p class="lead">This block stays simple so the remaining path and posture are visually dominant without imposing a false deadline.</p>
-          <div id="finishAlert" class="alert">There is no fixed finish date in the panel now. The objective is to rebuild steadily, preserve floor buffer, and avoid any day that creates a new consistency problem.</div>
+          <div id="finishAlert" class="alert">There is no fixed finish date in the panel now. The objective is to reach the target, preserve the floor, and satisfy the 5-day minimum without creating a new consistency problem.</div>
           <div class="grid-2" style="margin-top:var(--space-4)">
-            <div class="mini"><strong id="objectiveView">Primary objective</strong><span>Rebuild with A-grade setups, protect floor buffer, and let the account recover on its own timetable.</span></div>
-            <div class="mini"><strong id="maximumPosture">Maximum posture</strong><span>Press only when structure, dollar risk, and consistency math all remain clean. No automatic size increase just because you want to speed things up.</span></div>
+            <div class="mini"><strong id="objectiveView">Primary objective</strong><span>Reach the 3K target with controlled execution and floor protection.</span></div>
+            <div class="mini"><strong id="maximumPosture">Maximum posture</strong><span>Press only when structure, dollar risk, and consistency math all remain clean.</span></div>
             <div class="mini"><strong>Session cutoff</strong><span>Keep your existing rule: no new trading after noon ET.</span></div>
             <div class="mini"><strong>Immediate shutdown trigger</strong><span>Any attempt to revenge trade, double down emotionally, or erase the day in one burst ends the session.</span></div>
           </div>
@@ -212,13 +212,13 @@
 
         <article class="panel card">
           <h3>Consistency monitor</h3>
-          <p class="lead">After the Day 3 drawdown, consistency is not the active issue yet because net challenge profit is negative.</p>
+          <p class="lead">With net challenge profit at zero, the consistency cap is not yet active as a failure condition, but it will matter once profits build.</p>
           <div class="consistency-grid">
-            <div class="mini"><strong id="netProfitView">-$344.50</strong><span>Current net challenge profit</span></div>
-            <div class="mini"><strong id="bestDayView">$731.50</strong><span>Best day on record</span></div>
+            <div class="mini"><strong id="netProfitView">$0.00</strong><span>Current net challenge profit</span></div>
+            <div class="mini"><strong id="bestDayView">$0.00</strong><span>Best day on record</span></div>
             <div class="mini"><strong id="consistencyPctView">N/A</strong><span>Best day as percent of current net profit</span></div>
           </div>
-          <div id="consistencyAlert" class="alert">Consistency is not the active issue while net challenge profit is zero or negative. The active goal is rebuilding net profit without damaging floor buffer further.</div>
+          <div id="consistencyAlert" class="alert">Consistency is not the active issue while net challenge profit is zero or negative. The active goal is rebuilding net profit without violating the floor.</div>
         </article>
 
         <article class="panel card">
@@ -238,7 +238,7 @@
       <div class="stack">
         <article class="panel card">
           <h3>Trade log</h3>
-          <p class="lead">Loaded with the Day 3 reconstructed round trips from your fill list.</p>
+          <p class="lead">Ready for the reset cycle. Add new fills here as you trade the updated challenge.</p>
           <div style="overflow:auto">
             <table id="tradeTable">
               <thead><tr><th>#</th><th>Instrument</th><th>Contracts</th><th>Setup</th><th>Side</th><th>Points</th><th>P&amp;L</th><th>Note</th></tr></thead>
@@ -251,17 +251,17 @@
       <div class="stack">
         <article class="panel card">
           <h3>End-of-day review</h3>
-          <p class="lead">Day 3 was a setback, but the useful takeaway is specific: protect the first loss and stop trying to repair it by compressing recovery into too few sessions.</p>
-          <div class="field"><label for="review">Review notes</label><textarea id="review">Day 3 realized gross P&amp;L came in at -$537.50. The main hit came from the first long sequence that was exited into the 10:21 drop. Later trades showed cleaner execution and better responsiveness. With no fixed challenge deadline, the panel should now enforce an open-timeline rebuild mindset: selective setups, tighter early damage control, and no pressure to recover the entire gap in a specific number of days.</textarea></div>
+          <p class="lead">Use this space for the reset cycle review. The goal is clean repetition, not rushing the finish.</p>
+          <div class="field"><label for="review">Review notes</label><textarea id="review">Reset cycle: 50K account, 3K target, 48K floor, 5-day minimum, no maximum day count. Focus on A-grade setups, protect the floor, and keep the largest green day under 50% of total net challenge profit once the account is positive.</textarea></div>
           <div class="grid-2" style="margin-top:var(--space-4)">
-            <div class="mini"><strong>Best habit to reinforce</strong><span>Cut the first bad sequence faster so one idea does not define the session.</span></div>
-            <div class="mini"><strong>Biggest thing to avoid</strong><span>Using size or frequency to compensate for the reduced number of days left.</span></div>
+            <div class="mini"><strong>Best habit to reinforce</strong><span>Cut the first bad sequence fast so one idea does not define the session.</span></div>
+            <div class="mini"><strong>Biggest thing to avoid</strong><span>Using size or frequency to compensate for impatience.</span></div>
           </div>
         </article>
       </div>
     </section>
 
-    <p class="footer-note">Use this build as your Day 3 control panel. The main purpose is simple: keep target left, floor buffer, and execution posture visually unavoidable while you complete the challenge on a valid timeline.</p>
+    <p class="footer-note">Use this build as your reset control panel. The main purpose is simple: keep target left, floor buffer, and execution posture visually unavoidable while you complete the challenge on the new rules.</p>
   </div>
 
   <script>
@@ -280,9 +280,10 @@
     const finishAlert = qs('#finishAlert');
     const toggle = qs('[data-theme-toggle]');
 
-    const start = 25000;
-    const floor = 23500;
-    const targetProfit = 1500;
+    const start = 50000;
+    const floor = 48000;
+    const targetProfit = 3000;
+    const minDays = 5;
 
     function money(n){
       return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
@@ -305,9 +306,9 @@
       progressBar.style.width = `${progress}%`;
       targetLeft.textContent = `${money(left)} left`;
       floorLeft.textContent = `${money(buffer)} buffer`;
-      dailyPaceNeed.textContent = 'No daily quota';
+      dailyPaceNeed.textContent = `Minimum ${minDays} trading days`;
       adjustedTargetView.textContent = buffer < 1000 ? 'Laser focus: protect buffer' : 'Laser focus: clean rebuild';
-      qs('#paceTarget').textContent = 'No fixed daily pace';
+      qs('#paceTarget').textContent = `Minimum ${minDays} trading days`;
       qs('#focusDailyTarget').textContent = money0(left);
       qs('#day4Goal').textContent = money0(left);
       qs('#day5Goal').textContent = money0(bestDay);
@@ -335,7 +336,7 @@
         consistencyAlert.textContent = 'Consistency is not the active issue while net challenge profit is zero or negative. The active goal is rebuilding net profit without damaging floor buffer further.';
       } else if (consistencyPct >= 50) {
         consistencyAlert.className = 'alert bad';
-        consistencyAlert.textContent = 'Your current best day is still more than 50% of current net challenge profit. The safer fix is to stack more moderate green days so total net profit rises and this ratio falls.';
+        consistencyAlert.textContent = 'Your current best day is still more than 50% of current net challenge profit. Stack more moderate green days so total net profit rises and this ratio falls.';
       } else {
         consistencyAlert.className = 'alert good';
         consistencyAlert.textContent = 'Consistency is currently in a safer zone. Keep future green days moderate so no single day grows too dominant.';
@@ -353,39 +354,9 @@
       }
     }
 
-    const loadedTrades = [
-      { instrument:'MNQ', qty:2, setup:'Opening long flush', side:'Long', points:-87.25, pnl:-349.00, note:'Bought 1 at 29311.00 and 1 at 29285.50, then sold both at 29136.00 into the 10:21 breakdown.' },
-      { instrument:'MNQ', qty:2, setup:'Bounce long recovery', side:'Long', points:37.50, pnl:75.00, note:'Bought 1 at 29176.50 and 1 at 29233.50, then sold both at 29242.50.' },
-      { instrument:'MNQ', qty:2, setup:'Fade short cover', side:'Short', points:17.50, pnl:70.00, note:'Sold 2 at 29178.30 and bought back 1 at 29160.80 and 1 at 29170.80.' },
-      { instrument:'MNQ', qty:1, setup:'Quick long loss', side:'Long', points:-15.80, pnl:-31.60, note:'Bought 1 at 29160.80 and sold 1 at 29145.00.' },
-      { instrument:'MNQ', qty:1, setup:'Single long scalp', side:'Long', points:34.80, pnl:69.60, note:'Bought 1 at 29191.50 and sold 1 at 29226.30.' },
-      { instrument:'MNQ', qty:1, setup:'Late-morning long fade', side:'Long', points:-35.00, pnl:-70.00, note:'Bought 1 at 29250.00 and sold 1 at 29215.00.' },
-      { instrument:'MNQ', qty:5, setup:'Five-lot scalp', side:'Long', points:9.00, pnl:90.00, note:'Bought 5 at 29208.30 and sold 5 at 29217.30.' },
-      { instrument:'MNQ', qty:5, setup:'Five-lot scalp', side:'Long', points:4.30, pnl:43.00, note:'Bought 5 at 29197.50 and sold 5 at 29201.80.' },
-      { instrument:'MNQ', qty:5, setup:'Aggressive short squeeze', side:'Short', points:-24.30, pnl:-243.00, note:'Sold 5 at 29248.00 and covered 5 at 29272.30.' },
-      { instrument:'MNQ', qty:5, setup:'Quick short scalp', side:'Short', points:-1.20, pnl:-12.00, note:'Sold 5 at 29271.00 and covered 5 at 29272.20 from the blended long inventory.' },
-      { instrument:'MNQ', qty:5, setup:'Momentum long scalp', side:'Long', points:10.70, pnl:107.00, note:'Bought 5 at 29280.30 and sold 5 at 29281.00 plus bought 5 at 29286.80 and sold 5 at 29295.80, net blended for the final sequence.' },
-      { instrument:'MNQ', qty:7, setup:'Flat short close', side:'Short', points:5.00, pnl:70.00, note:'Sold 7 at 29289.80 and bought 7 at 29284.80, flattening the final position.' }
-    ];
-
+    const loadedTrades = [];
     const tradeBody = qs('#tradeTable tbody');
-    function renderTrades(){
-      tradeBody.innerHTML = '';
-      loadedTrades.forEach((trade, i) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${i + 1}</td>
-          <td>${trade.instrument}</td>
-          <td>${trade.qty}</td>
-          <td>${trade.setup}</td>
-          <td>${trade.side}</td>
-          <td>${trade.points.toFixed(2)}</td>
-          <td class="${trade.pnl < 0 ? 'trade-negative' : 'trade-positive'}">${money(trade.pnl)}</td>
-          <td>${trade.note}</td>
-        `;
-        tradeBody.appendChild(tr);
-      });
-    }
+    function renderTrades(){ tradeBody.innerHTML = ''; }
 
     let theme = 'dark';
     function syncToggle(){ toggle.textContent = theme === 'dark' ? '☀️' : '🌙'; toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`); }
