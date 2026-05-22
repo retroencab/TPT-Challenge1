@@ -32,18 +32,21 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{min-height:100dvh;background:radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 18%, transparent), transparent 28%), var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.6}
-    img,svg{display:block;max-width:100%}
     button,input,select,textarea{font:inherit;color:inherit}
     button{cursor:pointer;border:none}
-    a{color:inherit}
     :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
     .container{max-width:var(--content-wide);margin-inline:auto;padding:var(--space-4)}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding-block:var(--space-4) var(--space-8)}
+    .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);padding-block:var(--space-4) var(--space-8)}
+    .brand-row{display:flex;align-items:flex-start;gap:var(--space-4);width:100%;justify-content:space-between;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:var(--space-3)}
     .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--color-primary),color-mix(in oklab,var(--color-primary) 36%, black));display:grid;place-items:center;box-shadow:var(--shadow-md)}
     .brand h1{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05;letter-spacing:-0.03em}
     .brand p{color:var(--color-text-muted);font-size:var(--text-sm)}
     .theme-toggle{min-width:44px;min-height:44px;padding:var(--space-2);border-radius:var(--radius-full);background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
+    .key-learnings-top{padding:var(--space-4);min-width:min(560px,100%);background:linear-gradient(180deg, color-mix(in oklab, var(--color-warning) 32%, var(--color-surface-offset)), color-mix(in oklab, var(--color-warning) 12%, var(--color-surface-offset)));border:2px solid color-mix(in oklab, var(--color-warning) 65%, transparent);border-radius:var(--radius-xl);box-shadow:0 0 0 1px color-mix(in oklab, var(--color-warning) 25%, transparent), var(--shadow-lg)}
+    .key-learnings-top strong{display:block;margin-bottom:var(--space-2);font-family:var(--font-display);font-size:var(--text-lg);text-transform:uppercase;letter-spacing:.14em;color:#fff4aa;text-shadow:0 0 16px color-mix(in oklab, var(--color-warning) 75%, transparent);font-weight:800}
+    .key-learnings-top ul{padding-left:1.2rem;color:#fff9d7;font-weight:800}
+    .key-learnings-top li{margin-bottom:.35rem}
     .hero{display:grid;grid-template-columns:1.35fr 1fr;gap:var(--space-6);align-items:stretch}
     .panel{background:color-mix(in oklab,var(--color-surface) 86%, transparent);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);backdrop-filter:blur(14px)}
     .hero-main{padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5)}
@@ -67,90 +70,50 @@
     .day-pill{padding:var(--space-4);border-radius:var(--radius-lg);background:color-mix(in oklab,var(--color-surface) 60%, transparent);border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
     .day-pill small{display:block;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.08em;font-size:var(--text-xs);margin-bottom:var(--space-2)}
     .day-pill strong{display:block;font-size:var(--text-lg);font-variant-numeric:tabular-nums}
-    .section{margin-top:var(--space-6);display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6)}
-    .stack{display:grid;gap:var(--space-6)}
-    .card{padding:var(--space-6)}
-    .card h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2);letter-spacing:-0.02em}
-    .card p.lead{color:var(--color-text-muted);margin-bottom:var(--space-5)}
-    .grid-2,.grid-3,.grid-4{display:grid;gap:var(--space-4)}
-    .grid-2{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(4,1fr)}
-    .field{display:grid;gap:var(--space-2)}
-    .field label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);font-weight:700}
-    input,select,textarea{width:100%;background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 12%, transparent);border-radius:var(--radius-md);padding:.85rem 1rem;min-height:46px}
-    textarea{min-height:140px;resize:vertical}
-    .checklist{display:grid;gap:var(--space-3)}
-    .check{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-3);background:var(--color-surface-offset);border-radius:var(--radius-md)}
-    .check input{width:20px;height:20px;min-height:auto;margin-top:3px}
-    .progress-shell{height:14px;background:var(--color-surface-offset);border-radius:var(--radius-full);overflow:hidden;border:1px solid color-mix(in oklab,var(--color-text) 10%, transparent)}
-    .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--color-primary),color-mix(in oklab,var(--color-success) 65%, var(--color-primary)));transition:width .25s ease}
-    .alert{padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm);background:color-mix(in oklab,var(--color-warning) 14%, var(--color-surface-offset));border:1px solid color-mix(in oklab,var(--color-warning) 35%, transparent)}
-    .alert.good{background:color-mix(in oklab,var(--color-success) 14%, var(--color-surface-offset));border-color:color-mix(in oklab,var(--color-success) 35%, transparent)}
-    .alert.bad{background:color-mix(in oklab,var(--color-error) 14%, var(--color-surface-offset));border-color:color-mix(in oklab,var(--color-error) 35%, transparent)}
-    table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
-    th,td{text-align:left;padding:.8rem .6rem;border-bottom:1px solid var(--color-divider);vertical-align:top}
-    th{color:var(--color-text-muted);font-weight:700;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em}
-    .footer-note{margin:var(--space-6) 0 var(--space-10);color:var(--color-text-muted);font-size:var(--text-sm)}
-    .consistency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-4)}
-    .trade-negative{color:var(--color-error);font-weight:700}
-    .trade-positive{color:var(--color-success);font-weight:700}
-    .note-box{padding:var(--space-4);background:var(--color-surface-offset);border-radius:var(--radius-lg);border:1px dashed color-mix(in oklab,var(--color-text) 16%, transparent)}
-    @media (max-width: 1024px){.hero,.section{grid-template-columns:1fr}.stat-grid,.grid-3,.grid-4,.consistency-grid,.days-strip{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width: 680px){.stat-grid,.grid-2,.grid-3,.grid-4,.consistency-grid,.days-strip{grid-template-columns:1fr}.hero-main{padding:var(--space-6)}.card{padding:var(--space-5)}.topbar{align-items:flex-start;flex-direction:column}.focus-card .value{font-size:clamp(2rem,1.8rem + 4vw,3.4rem)}}
+    @media (max-width: 1024px){.hero{grid-template-columns:1fr}.stat-grid,.days-strip{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 680px){.stat-grid,.days-strip{grid-template-columns:1fr}.hero-main{padding:var(--space-6)}.topbar{flex-direction:column}.key-learnings-top{min-width:100%}.key-learnings-top strong{font-size:var(--text-sm)}}
   </style>
 </head>
 <body>
   <div class="container">
     <header class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 32 24 12l14 20"/>
-            <path d="M18 32h12"/>
-          </svg>
+      <div class="brand-row">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 32 24 12l14 20"/>
+              <path d="M18 32h12"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Prop Challenge Control Panel</h1>
+            <p>Reset build · 50K account · open timeline · drawdown-aware</p>
+          </div>
         </div>
-        <div>
-          <h1>Prop Challenge Control Panel</h1>
-          <p>Reset build · 50K account · open timeline · drawdown-aware</p>
+        <div class="key-learnings-top">
+          <strong>Key learnings</strong>
+          <ul>
+            <li>Smaller size (1-2) and tight stops until trend is proven.</li>
+            <li>Respect no trade days.</li>
+            <li>Max Loss per day = 300.</li>
+            <li>Avoid bearish days.</li>
+            <li>Edgeful bias should be well above 75%.</li>
+          </ul>
         </div>
       </div>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">☀️</button>
     </header>
-
     <section class="hero">
       <div class="panel hero-main">
         <span class="eyebrow">Reset parameters</span>
         <h2>Challenge reset to a 50K account with a 3K profit target and a hard floor at 48K.</h2>
         <p>This version reflects your new prop rules: 50% consistency cap, minimum 5 trading days, and no maximum day count. The panel now emphasizes target progress, floor buffer, and consistency health without forcing a deadline.</p>
-        <div class="key-learnings">
-          <strong>Key learnings</strong>
-          <ol>
-            <li>Smaller size (1-2) and tight stops until trend is proven.</li>
-            <li>Respect no trade days.</li>
-            <li>Max Loss per day = 300.</li>
-          </ol>
-        </div>
         <div class="stat-grid">
           <div class="stat"><label>Starting balance</label><strong id="startingBalanceView">$50,000.00</strong></div>
           <div class="stat"><label>Minimum allowed</label><strong id="minBalanceView">$48,000.00</strong></div>
           <div class="stat"><label>Profit target left</label><strong id="targetView">$3,000.00</strong></div>
           <div class="stat"><label>Trading days logged</label><strong id="dayCountHero">0 days</strong></div>
         </div>
-      </div>
-      <div class="panel hero-side">
-        <div class="focus-card">
-          <div class="label">Remaining challenge target</div>
-          <div class="value" id="focusDailyTarget">$3,000</div>
-          <div class="sub">There is no fixed finish date. The job is to reach the profit target while staying above the 48K floor and keeping the largest winning day under 50% of total net profit.</div>
-          <div class="days-strip">
-            <div class="day-pill"><small>Target left</small><strong id="day4Goal">$3,000</strong></div>
-            <div class="day-pill"><small>Floor buffer</small><strong id="bufferGoal">$2,000</strong></div>
-            <div class="day-pill"><small>Best day</small><strong id="day5Goal">$0</strong></div>
-          </div>
-        </div>
-        <div class="mini"><strong id="recommendedRisk">Reset posture: quality first, size second</strong><span>After a reset, the edge is selective aggression only when the setup quality is obvious and the stop makes sense in dollars.</span></div>
-        <div class="mini"><strong>Consistency trigger</strong><span>Your biggest winning day must stay under 50% of total net challenge profit. If total net profit is not yet positive, consistency is not the active fail condition.</span></div>
-        <div class="mini"><strong id="paceTarget">Minimum 5 trading days</strong><span>You must trade at least 5 days. There is no maximum day count, so the panel focuses on target left, floor buffer, and consistency status.</span></div>
-        <div class="mini"><strong>Platform risk reminder</strong><span>NT8 unrealized P&amp;L may display in points, not dollars. Confirm units before entering any stop you think is acceptable in dollar terms.</span></div>
       </div>
     </section>
   </div>
