@@ -30,12 +30,7 @@
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;overflow:hidden;-webkit-font-smoothing:antialiased}
-    body{
-      background:
-        radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 14%, transparent), transparent 30%),
-        linear-gradient(180deg, color-mix(in oklab, var(--color-bg) 96%, black), var(--color-bg));
-      color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.3
-    }
+    body{background:radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 14%, transparent), transparent 30%),linear-gradient(180deg, color-mix(in oklab, var(--color-bg) 96%, black), var(--color-bg));color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.3}
     button{cursor:pointer;border:none;background:none;color:inherit}
     .container{height:100vh;max-width:1280px;margin:0 auto;padding:0.9rem;display:grid;grid-template-rows:auto 1fr;gap:0.9rem}
     .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
@@ -51,17 +46,17 @@
     .hero h2{font-family:var(--font-display);font-size:clamp(1.55rem, 1.2rem + 1.15vw, 2.25rem);line-height:.94;max-width:19ch;letter-spacing:-0.05em}
     .hero p{color:var(--color-text-muted);max-width:66ch;font-size:var(--text-sm)}
     .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
-    .stat,.mini,.box,.progress-band{background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 9%, transparent);border-radius:var(--radius-lg)}
-    .stat,.mini{padding:.78rem}
-    .stat label,.progress-meta span,.section-label{display:block;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin-bottom:.3rem}
-    .stat strong,.mini strong{display:block;font-size:var(--text-lg);font-variant-numeric:tabular-nums lining-nums}
-    .mini span{display:block;color:var(--color-text-muted);font-size:var(--text-sm);margin-top:.15rem}
+    .stat,.mini,.box,.progress-band,.note-card{background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 9%, transparent);border-radius:var(--radius-lg)}
+    .stat,.mini,.note-card{padding:.78rem}
+    .stat label,.progress-meta span,.section-label,.note-card label{display:block;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin-bottom:.3rem}
+    .stat strong,.mini strong,.note-card strong{display:block;font-size:var(--text-lg);font-variant-numeric:tabular-nums lining-nums}
+    .mini span,.note-card p{display:block;color:var(--color-text-muted);font-size:var(--text-sm);margin-top:.15rem;line-height:1.45}
     .progress-band{padding:.8rem .9rem;display:grid;gap:.55rem}
     .progress-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
     .progress-head strong{font-size:var(--text-lg);font-variant-numeric:tabular-nums lining-nums}
     .progress-meta{display:flex;gap:1rem;flex-wrap:wrap}
     .progress-track{height:12px;border-radius:999px;background:color-mix(in oklab,var(--color-surface-elev) 88%, black);overflow:hidden}
-    .progress-fill{height:100%;width:50.9%;background:linear-gradient(90deg,var(--color-primary),color-mix(in oklab,var(--color-warning) 40%, var(--color-primary)));border-radius:999px}
+    .progress-fill{height:100%;width:60.5%;background:linear-gradient(90deg,var(--color-primary),color-mix(in oklab,var(--color-warning) 40%, var(--color-primary)));border-radius:999px}
     .right-col{display:grid;grid-template-rows:1fr 1fr;gap:.9rem;min-height:0}
     .box{padding:1rem;display:flex;flex-direction:column;gap:.72rem;overflow:hidden}
     .box h3{font-family:var(--font-display);font-size:var(--text-lg);text-transform:uppercase;letter-spacing:.12em;color:#ffe5a4}
@@ -76,20 +71,9 @@
     .pill.warn{background:var(--color-warning-highlight);color:var(--color-warning)}
     .pill.danger{background:var(--color-danger-highlight);color:var(--color-danger)}
     textarea{flex:1;min-height:0;resize:none;width:100%;padding:.8rem;border-radius:var(--radius-lg);border:1px solid color-mix(in oklab,var(--color-text) 12%, transparent);background:color-mix(in oklab,var(--color-bg) 94%, black);color:var(--color-text);font-size:var(--text-sm);line-height:1.45}
-    @media (max-width: 1180px){
-      .grid{grid-template-columns:1fr}
-      .right-col{grid-template-rows:auto auto}
-      html,body{overflow:auto}
-      .container{height:auto;min-height:100vh}
-    }
-    @media (max-width: 760px){
-      .summary{grid-template-columns:repeat(2,1fr)}
-      .topbar{flex-direction:column}
-    }
-    @media (max-width: 560px){
-      .summary{grid-template-columns:1fr}
-      .hero h2{max-width:none}
-    }
+    @media (max-width: 1180px){.grid{grid-template-columns:1fr}.right-col{grid-template-rows:auto auto}html,body{overflow:auto}.container{height:auto;min-height:100vh}}
+    @media (max-width: 760px){.summary{grid-template-columns:repeat(2,1fr)}.topbar{flex-direction:column}}
+    @media (max-width: 560px){.summary{grid-template-columns:1fr}.hero h2{max-width:none}}
   </style>
 </head>
 <body>
@@ -104,7 +88,7 @@
         </div>
         <div>
           <h1>Prop Challenge Control Panel</h1>
-          <p>50K account · day 3 logged · single-screen layout</p>
+          <p>50K account · day 4 logged · single-screen layout</p>
         </div>
       </div>
       <button class="theme-toggle" aria-label="Switch theme" data-theme-toggle>
@@ -116,34 +100,34 @@
 
     <section class="grid">
       <article class="panel hero">
-        <span class="eyebrow">Day 3 progress</span>
-        <h2>Challenge up $1,527.50 with an account balance of $51,527.50 after a bullish session that still tested discipline.</h2>
-        <p>The panel now reflects a stronger cushion, cleaner progress toward the target, and a more nuanced debrief around recovery mode, trend alignment, and missed opportunity cost.</p>
+        <span class="eyebrow">Day 4 progress</span>
+        <h2>Challenge up $673.50 with an account balance of $52,201 and a $2,000 floor buffer after a bearish chop session that still protected the day.</h2>
+        <p>The panel now reflects a smaller but solid gain, a cleaner debrief around chop management, and a stronger emphasis on stepping aside when the market turns noisy.</p>
 
         <div class="summary">
-          <div class="stat"><label>Account balance</label><strong>$51,527.50</strong></div>
-          <div class="stat"><label>Minimum balance</label><strong>$48,000</strong></div>
+          <div class="stat"><label>Account balance</label><strong>$52,201</strong></div>
+          <div class="stat"><label>Minimum balance</label><strong>$50,201</strong></div>
           <div class="stat"><label>Profit target</label><strong>$3,000</strong></div>
-          <div class="stat"><label>Days traded</label><strong>3 / 5+</strong></div>
+          <div class="stat"><label>Days traded</label><strong>4 / 5+</strong></div>
         </div>
 
         <div class="summary">
-          <div class="mini"><strong>Day 3 P&amp;L</strong><span>+$280.50 realized</span></div>
+          <div class="mini"><strong>Day 4 P&amp;L</strong><span>+$673.50 realized</span></div>
           <div class="mini"><strong>Average size</strong><span>6 MNQ</span></div>
-          <div class="mini"><strong>Trend / posture</strong><span>Bullish · recovery-aware</span></div>
-          <div class="mini"><strong>Buffer above floor</strong><span>$3,527.50</span></div>
+          <div class="mini"><strong>Trend / posture</strong><span>Bearish · chop-heavy</span></div>
+          <div class="mini"><strong>Buffer above floor</strong><span>$2,000</span></div>
         </div>
 
         <div class="progress-band">
           <div class="progress-head">
             <div>
               <span class="section-label">Target progress</span>
-              <strong>$1,527.50 of $3,000</strong>
+              <strong>$673.50 of $3,000</strong>
             </div>
             <div class="progress-meta">
-              <span>50.9% complete</span>
-              <span>$1,472.50 remaining</span>
-              <span>$3,527.50 above floor</span>
+              <span>22.5% complete</span>
+              <span>$2,326.50 remaining</span>
+              <span>$2,000 above floor</span>
             </div>
           </div>
           <div class="progress-track" aria-label="Profit target progress">
@@ -153,9 +137,9 @@
 
         <div class="pill-row">
           <span class="pill success">Rules intact</span>
-          <span class="pill primary">Bullish bias</span>
-          <span class="pill warn">Recovery mode</span>
-          <span class="pill danger">Trend fades caught</span>
+          <span class="pill primary">Bearish bias</span>
+          <span class="pill warn">Chop management</span>
+          <span class="pill danger">Pause between trades</span>
         </div>
       </article>
 
@@ -163,13 +147,12 @@
         <section class="box">
           <h3>Key Learnings</h3>
           <ul class="key-list">
-            <li>When the day has a bullish bias, do not spend mental capital fading the tape without strong confirmation.</li>
-            <li>Going against trend can create unnecessary recovery mode even when the session ultimately finishes green.</li>
-            <li>Average size at 6 MNQ kept the day manageable and gave room to recover without panic.</li>
-            <li>Missing A-quality continuation trades is often the hidden cost of earlier defensive mistakes.</li>
-            <li>Recognizing the mistake quickly mattered; stubbornness would have damaged the day.</li>
-            <li>Max daily loss = $250.</li>
-            <li>Stay with the market's pressure first, then look for exceptions only when structure clearly shifts.</li>
+            <li>Bearish trend plus chop is not a reason to force trades; it is often a signal to reduce frequency and wait for cleaner structure.</li>
+            <li>Giving in to chop and fading the wrong move cost a good opportunity, even though the day still finished green.</li>
+            <li>Cutting losses quickly and protecting profits preserved the session and kept the challenge moving in the right direction.</li>
+            <li>The next edge is spacing trades out more and using a reset after each attempt instead of re-entering from frustration or boredom.</li>
+            <li>If chop starts creating too many trades, switch to paper or simulator mode until structure improves and A+ setups return.</li>
+            <li>Exiting by noon as planned was a strong discipline win and should remain a hard boundary.</li>
           </ul>
         </section>
 
@@ -181,13 +164,13 @@
             <li>3. What did we learn?</li>
           </ul>
           <ul class="debrief-notes">
-            <li>No major rules were broken, but there were a couple of trades taken against the broader bullish push.</li>
-            <li>Temperament was okay overall; mistakes were acknowledged instead of defended, which helped stabilize the session.</li>
-            <li>Recovery focus worked, but it also kept attention tied to damage control instead of fresh opportunity.</li>
-            <li>Some profitable setups were missed because capital and attention were still committed to getting back in sync.</li>
-            <li>The lesson is clear: avoid creating recovery mode in the first place when the market is already showing direction.</li>
+            <li>No major rules were broken, but one trade was taken against the bear pressure and inside a choppy tape that did not deserve engagement.</li>
+            <li>Temperament was okay; losses were cut, profits were protected, and the noon cutoff was honored, which kept the day contained.</li>
+            <li>The main lesson is to pause longer between trades so each new entry is a decision, not a reaction.</li>
+            <li>When the market is choppy, fewer trades is usually the smarter trade; if execution gets noisy, move to paper until the tape cleans up.</li>
+            <li>Process goal: trade less, wait more, and let clean structure do the work.</li>
           </ul>
-          <textarea placeholder="Write your next debrief here...">Day 3 recap: +$280.50 with 6 MNQ average size. Bias was bullish, but a couple of countertrend attempts created recovery mode and caused missed upside later in the session. Good job acknowledging mistakes quickly and recovering, but the bigger edge is staying aligned early so profitable trades are not sacrificed to cleanup work.</textarea>
+          <textarea placeholder="Write your next debrief here...">Day 4 recap: +$673.50 with 6 MNQ average size. The session was bearish but choppy, and I gave in once by trading against the trend, which cost a solid opportunity. Good discipline showed up in cutting losses, protecting profits, and stopping by noon as planned. Next focus: give trades more room to rest between attempts, and if chop starts creating too many trades, switch to paper until conditions improve.</textarea>
         </section>
       </div>
     </section>
