@@ -196,5 +196,30 @@
       });
     })();
   </script>
+
+<script>
+(function(){
+  const acc = 52201;
+  const target = 3000;
+  const starting = 50000;
+  const goalBalance = starting + target;
+  const remaining = Math.max(0, goalBalance - acc);
+  const progress = Math.min(1, (acc - starting)/target);
+  // update DOM
+  document.querySelectorAll('.progress-head strong')[0].textContent = `$${(acc-starting).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})} of $${target.toLocaleString()}`;
+  const meta = document.querySelector('.progress-meta');
+  if(meta){
+    meta.children[0].textContent = `${(progress*100).toFixed(1)}% complete`;
+    meta.children[1].textContent = `$${remaining.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})} remaining`;
+    meta.children[2].textContent = `$${(acc - (starting+0)).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})} above floor`;
+  }
+  const fill = document.querySelector('.progress-fill');
+  if(fill){ fill.style.width = (progress*100) + '%'; }
+  // update stats
+  document.querySelectorAll('.stat strong')[0].textContent = `$${acc.toLocaleString(undefined,{minimumFractionDigits:0})}`;
+  document.querySelectorAll('.stat strong')[1].textContent = `$50,201`;
+})();
+</script>
+
 </body>
 </html>
