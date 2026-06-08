@@ -1,13 +1,20 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;background:#111;overflow:hidden;"><iframe srcdoc="&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-&lt;title&gt;Prop Challenge Control Panel&lt;/title&gt;
-&lt;style&gt;
-:root{--bg:#171614;--panel:#1c1b19;--panel2:#23211f;--text:#f1ede6;--muted:#b6afa4;--accent:#63aab2;--accent2:#24383a;--good:#8ec264;--good2:#263126;--warn:#e0a66a;--warn2:#433327;--danger:#ea7b7b;--danger2:#3f2727;--radius:18px;--shadow:0 16px 32px rgba(0,0,0,.34)}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prop Challenge Control Panel</title>
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#171614;--panel:#1c1b19;--panel2:#23211f;--text:#f1ede6;--muted:#b6afa4;
+  --accent:#63aab2;--accent2:#24383a;--good:#8ec264;--good2:#263126;--warn:#e0a66a;
+  --warn2:#433327;--danger:#ea7b7b;--danger2:#3f2727;--radius:18px;
+  --shadow:0 16px 32px rgba(0,0,0,.34)
+}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:linear-gradient(180deg,#12110f,#171614);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+html,body{margin:0;height:100%;background:linear-gradient(180deg,#12110f,#171614);color:var(--text);font-family:'Satoshi',Arial,Helvetica,sans-serif;overflow:hidden}
 body{display:flex;align-items:stretch;justify-content:center}
 .container{width:100%;max-width:1600px;height:100vh;padding:12px;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
 .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex:0 0 auto}
@@ -21,85 +28,112 @@ body{display:flex;align-items:stretch;justify-content:center}
 .eyebrow{display:inline-block;background:var(--accent2);color:var(--accent);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;width:max-content}
 h2{margin:0;font-size:clamp(18px,1.45vw,25px);line-height:1.05;letter-spacing:-.04em;max-width:100%}
 p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
-.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;min-width:0}.stat label{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat strong{display:block;font-size:15px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.progress{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;display:grid;gap:6px;min-width:0}.progresshead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:nowrap;min-width:0}.progresshead&gt;div:first-child{min-width:0;flex:1}.progresshead strong{display:block;font-size:13px;line-height:1.12;white-space:normal;max-width:100%}.meta{display:flex;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em;line-height:1.15;max-width:46%}.track{height:10px;background:#0f0f0e;border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--accent),#7cc9d3);border-radius:999px}
-.pills{display:flex;flex-wrap:wrap;gap:6px}.pill{padding:6px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--panel2);border:1px solid rgba(255,255,255,.08);color:var(--muted)}.success{background:var(--good2);color:var(--good)}.primary{background:var(--accent2);color:var(--accent)}.warn{background:var(--warn2);color:var(--warn)}.danger{background:var(--danger2);color:var(--danger)}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;min-width:0}
+.stat label{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat strong{display:block;font-size:15px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progress{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;display:grid;gap:6px;min-width:0}
+.progresshead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:nowrap;min-width:0}
+.progresshead>div:first-child{min-width:0;flex:1}
+.progresshead strong{display:block;font-size:13px;line-height:1.12;white-space:normal;max-width:100%}
+.meta{display:flex;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em;line-height:1.15;max-width:46%}
+.track{height:10px;background:#0f0f0e;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),#7cc9d3);border-radius:999px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{padding:6px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--panel2);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
+.success{background:var(--good2);color:var(--good)}.primary{background:var(--accent2);color:var(--accent)}.warn{background:var(--warn2);color:var(--warn)}.danger{background:var(--danger2);color:var(--danger)}
 .bottomgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}.bottom{padding:12px;display:grid;gap:10px;min-height:0}
-h3{margin:0;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#ffe5a4}.learn{font-family:Georgia,serif;font-style:italic;font-size:15px;line-height:1.35;color:#f4e7c5;background:linear-gradient(180deg,rgba(224,166,106,.18),transparent);border-left:4px solid var(--warn);padding:10px 12px;border-radius:12px}.learn span{display:block;font-family:Arial,sans-serif;font-size:10px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:5px}
-.list{margin:0;padding-left:18px;display:grid;gap:6px;color:#fff9e0;font-size:12px;line-height:1.28}.debriefprompts{color:var(--muted);font-weight:700}.debriefnotes{color:var(--text)}textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-radius:14px;padding:10px;background:#11100f;color:var(--text);font-size:12px;line-height:1.35}
+h3{margin:0;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#ffe5a4}
+.learn{font-family:Georgia,serif;font-style:italic;font-size:15px;line-height:1.35;color:#f4e7c5;background:linear-gradient(180deg,rgba(224,166,106,.18),transparent);border-left:4px solid var(--warn);padding:10px 12px;border-radius:12px}
+.learn span{display:block;font-family:'Satoshi',Arial,sans-serif;font-size:10px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:5px}
+.list{margin:0;padding-left:18px;display:grid;gap:6px;color:#fff9e0;font-size:12px;line-height:1.28}.debriefprompts{color:var(--muted);font-weight:700}.debriefnotes{color:var(--text)}
+textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-radius:14px;padding:10px;background:#11100f;color:var(--text);font-size:12px;line-height:1.35}
 @media (max-width:1180px){.grid,.bottomgrid{grid-template-columns:1fr}.container{height:auto;min-height:100vh;overflow:auto}body{overflow:auto}}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;header class=&quot;topbar&quot;&gt;
-    &lt;div class=&quot;brand&quot;&gt;
-      &lt;div class=&quot;logo&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;22&quot; height=&quot;22&quot; fill=&quot;none&quot; stroke=&quot;white&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M10 32 24 12l14 20&quot;/&gt;&lt;path d=&quot;M18 32h12&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
-      &lt;div&gt;&lt;h1&gt;Prop Challenge Control Panel&lt;/h1&gt;&lt;p&gt;2 simultaneous challenges · side-by-side columns · single-page fit&lt;/p&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/header&gt;
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32 24 12l14 20"/><path d="M18 32h12"/></svg></div>
+      <div><h1>Prop Challenge Control Panel</h1><p>2 simultaneous challenges · side-by-side columns · single-page fit</p></div>
+    </div>
+  </header>
 
-  &lt;section class=&quot;grid&quot;&gt;
-    &lt;article class=&quot;panel card&quot;&gt;
-      &lt;span class=&quot;eyebrow&quot;&gt;Challenge 1 · Day 1&lt;/span&gt;
-      &lt;h2&gt;50K account is up $1,488 with a $51,488 balance, a $49,488 minimum balance, and 10 MNQ while working through bearish chop.&lt;/h2&gt;
-      &lt;p&gt;This column mirrors the same criteria as the other challenge so you can compare both accounts at a glance while keeping the execution discipline identical.&lt;/p&gt;
-      &lt;div class=&quot;summary&quot;&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Account balance&lt;/label&gt;&lt;strong&gt;$51,488&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Minimum balance&lt;/label&gt;&lt;strong&gt;$49,488&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Day 1 P&amp;amp;L&lt;/label&gt;&lt;strong&gt;+$1,488&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Size / trend&lt;/label&gt;&lt;strong&gt;10 MNQ&lt;/strong&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;summary&quot;&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Challenge type&lt;/label&gt;&lt;strong&gt;50K prop evaluation&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Market posture&lt;/label&gt;&lt;strong&gt;Bearish chop&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Floor buffer&lt;/label&gt;&lt;strong&gt;$2,000&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Session focus&lt;/label&gt;&lt;strong&gt;Scalps only&lt;/strong&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;progress&quot;&gt;
-        &lt;div class=&quot;progresshead&quot;&gt;&lt;div&gt;&lt;span class=&quot;eyebrow&quot; style=&quot;margin-bottom:6px&quot;&gt;Target progress&lt;/span&gt;&lt;strong&gt;+$1,488 toward $3,000 target&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;meta&quot;&gt;&lt;span&gt;5-day minimum required&lt;/span&gt;&lt;span&gt;Remaining target: $1,512&lt;/span&gt;&lt;span&gt;Day target avg: $302.40&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;track&quot;&gt;&lt;div class=&quot;fill&quot; style=&quot;width:49.6%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;pills&quot;&gt;&lt;span class=&quot;pill success&quot;&gt;Risk contained&lt;/span&gt;&lt;span class=&quot;pill primary&quot;&gt;Bearish bias&lt;/span&gt;&lt;span class=&quot;pill warn&quot;&gt;Chop management&lt;/span&gt;&lt;span class=&quot;pill danger&quot;&gt;No knife catching&lt;/span&gt;&lt;/div&gt;
-    &lt;/article&gt;
+  <section class="grid">
+    <article class="panel card">
+      <span class="eyebrow">Challenge 1 · Day 2</span>
+      <h2>50K account is up $555 on Day 2 with a $52,043 balance, a $50,043 minimum balance, and 8 MNQ while navigating chop.</h2>
+      <p>This column stays aligned with the 25K panel so both accounts remain easy to compare while you keep the same execution framework.</p>
+      <div class="summary">
+        <div class="stat"><label>Account balance</label><strong>$52,043</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$50,043</strong></div>
+        <div class="stat"><label>Day 2 P&amp;L</label><strong>+$555</strong></div>
+        <div class="stat"><label>Avg size / trend</label><strong>8 MNQ</strong></div>
+      </div>
+      <div class="summary">
+        <div class="stat"><label>Challenge type</label><strong>50K prop evaluation</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Chop</strong></div>
+        <div class="stat"><label>Floor buffer</label><strong>$2,000</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Fast scalps</strong></div>
+      </div>
+      <div class="progress">
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$2,043 toward $3,000 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $957</span><span>Progress: 68.1%</span></div></div>
+        <div class="track"><div class="fill" style="width:68.1%"></div></div>
+      </div>
+      <div class="pills"><span class="pill success">Impulse control</span><span class="pill primary">Chop</span><span class="pill warn">Fast scalping</span><span class="pill danger">Wait for breach</span></div>
+    </article>
 
-    &lt;article class=&quot;panel card&quot;&gt;
-      &lt;span class=&quot;eyebrow&quot;&gt;Challenge 2 · Day 1&lt;/span&gt;
-      &lt;h2&gt;25K account is up $725 with a $25,725 balance, a $24,225 minimum balance, and 8 MNQ while working through bearish chop.&lt;/h2&gt;
-      &lt;p&gt;Keep this side visually identical so the differences are purely numerical, making it easier to review both evaluations without changing your process.&lt;/p&gt;
-      &lt;div class=&quot;summary&quot;&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Account balance&lt;/label&gt;&lt;strong&gt;$25,725&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Minimum balance&lt;/label&gt;&lt;strong&gt;$24,225&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Day 1 P&amp;amp;L&lt;/label&gt;&lt;strong&gt;+$725&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Size / trend&lt;/label&gt;&lt;strong&gt;8 MNQ&lt;/strong&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;summary&quot;&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Challenge type&lt;/label&gt;&lt;strong&gt;25K prop evaluation&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Market posture&lt;/label&gt;&lt;strong&gt;Bearish chop&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Floor buffer&lt;/label&gt;&lt;strong&gt;$1,500&lt;/strong&gt;&lt;/div&gt;
-        &lt;div class=&quot;stat&quot;&gt;&lt;label&gt;Session focus&lt;/label&gt;&lt;strong&gt;Scalps only&lt;/strong&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;progress&quot;&gt;
-        &lt;div class=&quot;progresshead&quot;&gt;&lt;div&gt;&lt;span class=&quot;eyebrow&quot; style=&quot;margin-bottom:6px&quot;&gt;Target progress&lt;/span&gt;&lt;strong&gt;+$725 toward $1,500 target&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;meta&quot;&gt;&lt;span&gt;5-day minimum required&lt;/span&gt;&lt;span&gt;Remaining target: $775&lt;/span&gt;&lt;span&gt;Day target avg: $155.00&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;track&quot;&gt;&lt;div class=&quot;fill&quot; style=&quot;width:48.3%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;pills&quot;&gt;&lt;span class=&quot;pill success&quot;&gt;Risk contained&lt;/span&gt;&lt;span class=&quot;pill primary&quot;&gt;Bearish bias&lt;/span&gt;&lt;span class=&quot;pill warn&quot;&gt;Chop management&lt;/span&gt;&lt;span class=&quot;pill danger&quot;&gt;No knife catching&lt;/span&gt;&lt;/div&gt;
-    &lt;/article&gt;
-  &lt;/section&gt;
+    <article class="panel card">
+      <span class="eyebrow">Challenge 2 · Day 2</span>
+      <h2>25K account is up $302.50 on Day 2 with a $26,027.50 balance, a $24,527.50 minimum balance, and 5 MNQ while navigating chop.</h2>
+      <p>Keep this side visually identical so the differences stay numerical and process review remains simple across both evaluations.</p>
+      <div class="summary">
+        <div class="stat"><label>Account balance</label><strong>$26,027.50</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$24,527.50</strong></div>
+        <div class="stat"><label>Day 2 P&amp;L</label><strong>+$302.50</strong></div>
+        <div class="stat"><label>Avg size / trend</label><strong>5 MNQ</strong></div>
+      </div>
+      <div class="summary">
+        <div class="stat"><label>Challenge type</label><strong>25K prop evaluation</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Chop</strong></div>
+        <div class="stat"><label>Floor buffer</label><strong>$1,500</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Fast scalps</strong></div>
+      </div>
+      <div class="progress">
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$1,027.50 toward $1,500 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $472.50</span><span>Progress: 68.5%</span></div></div>
+        <div class="track"><div class="fill" style="width:68.5%"></div></div>
+      </div>
+      <div class="pills"><span class="pill success">Impulse control</span><span class="pill primary">Chop</span><span class="pill warn">Fast scalping</span><span class="pill danger">Wait for breach</span></div>
+    </article>
+  </section>
 
-  &lt;section class=&quot;bottomgrid&quot;&gt;
-    &lt;section class=&quot;bottom&quot;&gt;
-      &lt;h3&gt;Key Learnings&lt;/h3&gt;
-      &lt;div class=&quot;learn&quot;&gt;&lt;span&gt;Top rule to review daily&lt;/span&gt;Don't catch falling knives, wait for the structure to develop, and leverage it for scalps.&lt;/div&gt;
-      &lt;ul class=&quot;list&quot;&gt;&lt;li&gt;Bearish chop is a patience test; reduce frequency and wait for clean structure instead of forcing trades.&lt;/li&gt;&lt;li&gt;Scalps should come from structure, not from trying to predict the bottom.&lt;/li&gt;&lt;li&gt;If conditions get noisy, step back and preserve the challenge.&lt;/li&gt;&lt;li&gt;Keep execution tight and let the market show the setup first.&lt;/li&gt;&lt;/ul&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;bottom&quot;&gt;
-      &lt;h3&gt;Daily Debrief&lt;/h3&gt;
-      &lt;ul class=&quot;list debriefprompts&quot;&gt;&lt;li&gt;1. Which rules were broken today?&lt;/li&gt;&lt;li&gt;2. Describe today's prevalent behavior.&lt;/li&gt;&lt;li&gt;3. What did we learn?&lt;/li&gt;&lt;/ul&gt;
-      &lt;ul class=&quot;list debriefnotes&quot;&gt;&lt;li&gt;Stay out of falling knife setups and wait for structure to form before taking scalps.&lt;/li&gt;&lt;li&gt;Both challenges are green and still have room above their floors, which keeps the pressure manageable.&lt;/li&gt;&lt;li&gt;The best edge is patience, not anticipation.&lt;/li&gt;&lt;/ul&gt;
-      &lt;textarea&gt;Day 1 recap: both accounts are positive, but the real win is discipline in bearish chop. No falling knives. Wait for structure, then scalp it cleanly.&lt;/textarea&gt;
-    &lt;/section&gt;
-  &lt;/section&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;" style="width:100vw;height:100vh;border:0;display:block;"></iframe></body></html>
+  <section class="bottomgrid">
+    <section class="bottom">
+      <h3>Key Learnings</h3>
+      <div class="learn"><span>Top rule to review daily</span>Fast scalping works best only after the short-term trend is clear and key levels have been breached.</div>
+      <ul class="list">
+        <li>Chop demanded patience; the cleanest trades came only after structure became obvious.</li>
+        <li>Quick profitable exits protected the day when broader direction stayed absent.</li>
+        <li>Impulse control mattered more than forcing continuation in a messy tape.</li>
+        <li>When key levels broke with short-term alignment, speed and simplicity worked.</li>
+      </ul>
+    </section>
+    <section class="bottom">
+      <h3>Daily Debrief</h3>
+      <ul class="list debriefprompts">
+        <li>1. Which rules were broken today?</li>
+        <li>2. Describe today's prevalent behavior.</li>
+        <li>3. What did we learn?</li>
+      </ul>
+      <ul class="list debriefnotes">
+        <li>Tricky day overall because there was no meaningful overall direction.</li>
+        <li>Fast scalping worked once the short-term trend and key level breaches were correctly identified.</li>
+        <li>Exiting at a profitable point showed strong impulse control and preserved both challenges.</li>
+      </ul>
+      <textarea>Day 2 recap: chop again. Fast scalps worked only after the short-term trend and level breaches became clear. The real win was taking profit cleanly instead of overstaying in a directionless session.</textarea>
+    </section>
+  </section>
+</div>
+</body>
+</html>
