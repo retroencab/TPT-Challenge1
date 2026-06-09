@@ -39,6 +39,8 @@ p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
 .meta{display:flex;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em;line-height:1.15;max-width:46%}
 .track{height:10px;background:#0f0f0e;border-radius:999px;overflow:hidden}
 .fill{height:100%;background:linear-gradient(90deg,var(--accent),#7cc9d3);border-radius:999px}
+.fill-success{height:100%;background:linear-gradient(90deg,var(--good),#9fdf87);border-radius:999px}
+.fill-danger{height:100%;background:linear-gradient(90deg,var(--danger),#ef9999);border-radius:999px}
 .pills{display:flex;flex-wrap:wrap;gap:6px}
 .pill{padding:6px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--panel2);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
 .success{background:var(--good2);color:var(--good)}.primary{background:var(--accent2);color:var(--accent)}.warn{background:var(--warn2);color:var(--warn)}.danger{background:var(--danger2);color:var(--danger)}
@@ -61,62 +63,64 @@ textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-
   </header>
 
   <section class="grid">
+    <!-- 50K Challenge - Day 3 -->
     <article class="panel card">
-      <span class="eyebrow">Challenge 1 · Day 2</span>
-      <h2>50K account is up $555 on Day 2 with a $52,043 balance, a $50,043 minimum balance, and 8 MNQ while navigating chop.</h2>
-      <p>This column stays aligned with the 25K panel so both accounts remain easy to compare while you keep the same execution framework.</p>
+      <span class="eyebrow">Challenge 1 · Day 3</span>
+      <h2>50K account totals $1,798 profit across 3 days with a $51,798 balance, a $49,798 minimum balance, and 5 MNQ while navigating bearish chop.</h2>
+      <p>Major swings tested discipline today, but reducing size and eliminating against-trend trades enabled recovery from heavy losses.</p>
       <div class="summary">
-        <div class="stat"><label>Account balance</label><strong>$52,043</strong></div>
-        <div class="stat"><label>Minimum balance</label><strong>$50,043</strong></div>
-        <div class="stat"><label>Day 2 P&amp;L</label><strong>+$555</strong></div>
-        <div class="stat"><label>Avg size / trend</label><strong>8 MNQ</strong></div>
+        <div class="stat"><label>Account balance</label><strong>$51,798</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$49,798</strong></div>
+        <div class="stat"><label>Day 3 P&amp;L</label><strong style="color:var(--danger)">-$245</strong></div>
+        <div class="stat"><label>Avg size / trend</label><strong>5 MNQ</strong></div>
       </div>
       <div class="summary">
         <div class="stat"><label>Challenge type</label><strong>50K prop evaluation</strong></div>
-        <div class="stat"><label>Market posture</label><strong>Chop</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Bearish chop</strong></div>
         <div class="stat"><label>Floor buffer</label><strong>$2,000</strong></div>
-        <div class="stat"><label>Session focus</label><strong>Fast scalps</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Trend following</strong></div>
       </div>
       <div class="progress">
-        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$2,043 toward $3,000 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $957</span><span>Progress: 68.1%</span></div></div>
-        <div class="track"><div class="fill" style="width:68.1%"></div></div>
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$1,798 toward $3,000 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $1,202</span><span>Progress: 59.9%</span></div></div>
+        <div class="track"><div class="fill fill-danger" style="width:59.9%"></div></div>
       </div>
-      <div class="pills"><span class="pill success">Impulse control</span><span class="pill primary">Chop</span><span class="pill warn">Fast scalping</span><span class="pill danger">Wait for breach</span></div>
+      <div class="pills"><span class="pill success">Size reduction</span><span class="pill danger">Bearish chop</span><span class="pill warn">Recovery made</span><span class="pill primary">No against-trend</span></div>
     </article>
 
+    <!-- 25K Challenge - Day 3 -->
     <article class="panel card">
-      <span class="eyebrow">Challenge 2 · Day 2</span>
-      <h2>25K account is up $302.50 on Day 2 with a $26,027.50 balance, a $24,527.50 minimum balance, and 5 MNQ while navigating chop.</h2>
-      <p>Keep this side visually identical so the differences stay numerical and process review remains simple across both evaluations.</p>
+      <span class="eyebrow">Challenge 2 · Day 3</span>
+      <h2>25K account totals $1,525 profit across 3 days with a $26,525 balance, a $25,025 minimum balance, and 5 MNQ. Target reached!</h2>
+      <p>Strong recovery day after the chop session. Need to trade 2 more days for PRO account approval (5-day minimum required).</p>
       <div class="summary">
-        <div class="stat"><label>Account balance</label><strong>$26,027.50</strong></div>
-        <div class="stat"><label>Minimum balance</label><strong>$24,527.50</strong></div>
-        <div class="stat"><label>Day 2 P&amp;L</label><strong>+$302.50</strong></div>
+        <div class="stat"><label>Account balance</label><strong>$26,525</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$25,025</strong></div>
+        <div class="stat"><label>Day 3 P&amp;L</label><strong style="color:var(--good)">+$497.50</strong></div>
         <div class="stat"><label>Avg size / trend</label><strong>5 MNQ</strong></div>
       </div>
       <div class="summary">
         <div class="stat"><label>Challenge type</label><strong>25K prop evaluation</strong></div>
-        <div class="stat"><label>Market posture</label><strong>Chop</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Bearish chop</strong></div>
         <div class="stat"><label>Floor buffer</label><strong>$1,500</strong></div>
-        <div class="stat"><label>Session focus</label><strong>Fast scalps</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Trend following</strong></div>
       </div>
       <div class="progress">
-        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$1,027.50 toward $1,500 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $472.50</span><span>Progress: 68.5%</span></div></div>
-        <div class="track"><div class="fill" style="width:68.5%"></div></div>
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong style="color:var(--good)">+$1,525 toward $1,500 target ✓</strong></div><div class="meta"><span>5-day minimum required</span><span>2 days to PRO approval</span><span>Progress: 101.7%</span></div></div>
+        <div class="track"><div class="fill fill-success" style="width:101.7%"></div></div>
       </div>
-      <div class="pills"><span class="pill success">Impulse control</span><span class="pill primary">Chop</span><span class="pill warn">Fast scalping</span><span class="pill danger">Wait for breach</span></div>
+      <div class="pills"><span class="pill success">Target reached</span><span class="pill success">2 days to PRO</span><span class="pill warn">Bearish chop</span><span class="pill primary">Trend follow</span></div>
     </article>
   </section>
 
   <section class="bottomgrid">
     <section class="bottom">
       <h3>Key Learnings</h3>
-      <div class="learn"><span>Top rule to review daily</span>Fast scalping works best only after the short-term trend is clear and key levels have been breached.</div>
+      <div class="learn"><span>Top rule to review daily</span>Reduce size immediately when major swings hit, and eliminate all against-trend trades in bearish chop.</div>
       <ul class="list">
-        <li>Chop demanded patience; the cleanest trades came only after structure became obvious.</li>
-        <li>Quick profitable exits protected the day when broader direction stayed absent.</li>
-        <li>Impulse control mattered more than forcing continuation in a messy tape.</li>
-        <li>When key levels broke with short-term alignment, speed and simplicity worked.</li>
+        <li>Bearish chop with major swings requires instant size reduction to contain drawdown.</li>
+        <li>Against-trend trades in chop destroy accounts; wait for clear short-term trend alignment.</li>
+        <li>Recovery from heavy losses came from discipline, not aggression—smaller size preserved the challenge.</li>
+        <li>When the market swings violently, trend following with tight risk beats trying to catch tops/bottoms.</li>
       </ul>
     </section>
     <section class="bottom">
@@ -127,11 +131,12 @@ textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-
         <li>3. What did we learn?</li>
       </ul>
       <ul class="list debriefnotes">
-        <li>Tricky day overall because there was no meaningful overall direction.</li>
-        <li>Fast scalping worked once the short-term trend and key level breaches were correctly identified.</li>
-        <li>Exiting at a profitable point showed strong impulse control and preserved both challenges.</li>
+        <li>Tough day with major swings in the 50K account, but I recovered from heavy losses by reducing size.</li>
+        <li>Eliminating against-the-trend trades was the key to recovery in bearish chop conditions.</li>
+        <li>25K reached the profit target ($1,525 total)—now need 2 more trading days for PRO account approval.</li>
+        <li>Bearish chop demands patience; forcing against-trend trades is the fastest way to blow the challenge.</li>
       </ul>
-      <textarea>Day 2 recap: chop again. Fast scalps worked only after the short-term trend and level breaches became clear. The real win was taking profit cleanly instead of overstaying in a directionless session.</textarea>
+      <textarea>Day 3 recap: bearish chop with major swings. 50K took heavy losses but recovered by cutting size and dropping all against-trend trades. Total: $1,798 (59.9% of $3,000). 25K had a strong +$497.50 day and hit the profit target with $1,525 total—2 more days to PRO approval. The lesson: size reduction + trend discipline saves challenges when swings hit.</textarea>
     </section>
   </section>
 </div>
