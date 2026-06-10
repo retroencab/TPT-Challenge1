@@ -7,14 +7,8 @@
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#171614;--panel:#1c1b19;--panel2:#23211f;--text:#f1ede6;--muted:#b6afa4;
-  --accent:#63aab2;--accent2:#24383a;--good:#8ec264;--good2:#263126;--warn:#e0a66a;
-  --warn2:#433327;--danger:#ea7b7b;--danger2:#3f2727;--radius:18px;
-  --shadow:0 16px 32px rgba(0,0,0,.34)
-}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%;background:linear-gradient(180deg,#12110f,#171614);color:var(--text);font-family:'Satoshi',Arial,Helvetica,sans-serif;overflow:hidden}
+:root{--bg:#171614;--panel:#1c1b19;--panel2:#23211f;--text:#f1ede6;--muted:#b6afa4;--accent:#63aab2;--accent2:#24383a;--good:#8ec264;--good2:#263126;--warn:#e0a66a;--warn2:#433327;--danger:#ea7b7b;--danger2:#3f2727;--radius:18px;--shadow:0 16px 32px rgba(0,0,0,.34)}
+*{box-sizing:border-box} html,body{margin:0;height:100%;background:linear-gradient(180deg,#12110f,#171614);color:var(--text);font-family:'Satoshi',Arial,Helvetica,sans-serif;overflow:hidden}
 body{display:flex;align-items:stretch;justify-content:center}
 .container{width:100%;max-width:1600px;height:100vh;padding:12px;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
 .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex:0 0 auto}
@@ -22,35 +16,36 @@ body{display:flex;align-items:stretch;justify-content:center}
 .logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--accent),#20363a);display:grid;place-items:center;box-shadow:var(--shadow);flex:0 0 auto}
 .brand h1{margin:0;font-size:clamp(24px,2vw,34px);line-height:.96;letter-spacing:-.04em;white-space:nowrap}
 .brand p{margin:5px 0 0;color:var(--muted);font-size:13px;white-space:nowrap}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-height:0}
 .panel,.bottom{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;min-height:0}
-.card{padding:12px;display:grid;gap:10px;min-height:0}
+.card{padding:11px;display:grid;gap:9px;min-height:0}
 .eyebrow{display:inline-block;background:var(--accent2);color:var(--accent);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;width:max-content}
-h2{margin:0;font-size:clamp(18px,1.45vw,25px);line-height:1.05;letter-spacing:-.04em;max-width:100%}
-p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
-.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.stat{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;min-width:0}
-.stat label{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.stat strong{display:block;font-size:15px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.progress{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:9px;display:grid;gap:6px;min-width:0}
+h2{margin:0;font-size:clamp(17px,1.2vw,22px);line-height:1.04;letter-spacing:-.04em;max-width:100%}
+p{margin:0;color:var(--muted);font-size:11.5px;line-height:1.32}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.stat{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:8px;min-width:0}
+.stat label{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat strong{display:block;font-size:14px;line-height:1.08;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progress{background:var(--panel2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:8px;display:grid;gap:6px;min-width:0}
 .progresshead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:nowrap;min-width:0}
 .progresshead>div:first-child{min-width:0;flex:1}
-.progresshead strong{display:block;font-size:13px;line-height:1.12;white-space:normal;max-width:100%}
-.meta{display:flex;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em;line-height:1.15;max-width:46%}
-.track{height:10px;background:#0f0f0e;border-radius:999px;overflow:hidden}
+.progresshead strong{display:block;font-size:12px;line-height:1.12;white-space:normal;max-width:100%}
+.meta{display:flex;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.05em;line-height:1.15;max-width:48%}
+.track{height:9px;background:#0f0f0e;border-radius:999px;overflow:hidden}
 .fill{height:100%;background:linear-gradient(90deg,var(--accent),#7cc9d3);border-radius:999px}
 .fill-success{height:100%;background:linear-gradient(90deg,var(--good),#9fdf87);border-radius:999px}
 .fill-danger{height:100%;background:linear-gradient(90deg,var(--danger),#ef9999);border-radius:999px}
-.pills{display:flex;flex-wrap:wrap;gap:6px}
-.pill{padding:6px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--panel2);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
+.pill{padding:5px 8px;border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--panel2);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
 .success{background:var(--good2);color:var(--good)}.primary{background:var(--accent2);color:var(--accent)}.warn{background:var(--warn2);color:var(--warn)}.danger{background:var(--danger2);color:var(--danger)}
-.bottomgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}.bottom{padding:12px;display:grid;gap:10px;min-height:0}
-h3{margin:0;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#ffe5a4}
-.learn{font-family:Georgia,serif;font-style:italic;font-size:15px;line-height:1.35;color:#f4e7c5;background:linear-gradient(180deg,rgba(224,166,106,.18),transparent);border-left:4px solid var(--warn);padding:10px 12px;border-radius:12px}
-.learn span{display:block;font-family:'Satoshi',Arial,sans-serif;font-size:10px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:5px}
-.list{margin:0;padding-left:18px;display:grid;gap:6px;color:#fff9e0;font-size:12px;line-height:1.28}.debriefprompts{color:var(--muted);font-weight:700}.debriefnotes{color:var(--text)}
-textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-radius:14px;padding:10px;background:#11100f;color:var(--text);font-size:12px;line-height:1.35}
-@media (max-width:1180px){.grid,.bottomgrid{grid-template-columns:1fr}.container{height:auto;min-height:100vh;overflow:auto}body{overflow:auto}}
+.bottomgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}.bottom{padding:11px;display:grid;gap:9px;min-height:0}
+h3{margin:0;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#ffe5a4}
+.learn{font-family:Georgia,serif;font-style:italic;font-size:14px;line-height:1.3;color:#f4e7c5;background:linear-gradient(180deg,rgba(224,166,106,.18),transparent);border-left:4px solid var(--warn);padding:9px 11px;border-radius:12px}
+.learn span{display:block;font-family:'Satoshi',Arial,sans-serif;font-size:9px;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:4px}
+.list{margin:0;padding-left:18px;display:grid;gap:5px;color:#fff9e0;font-size:11.5px;line-height:1.25}.debriefprompts{color:var(--muted);font-weight:700}.debriefnotes{color:var(--text)}
+textarea{width:100%;min-height:84px;resize:none;border:none;outline:none;border-radius:14px;padding:10px;background:#11100f;color:var(--text);font-size:11.5px;line-height:1.3}
+@media (max-width:1380px){.grid{grid-template-columns:1fr 1fr}.container{height:auto;min-height:100vh;overflow:auto}body{overflow:auto}}
+@media (max-width:980px){.grid,.bottomgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -58,85 +53,106 @@ textarea{width:100%;min-height:92px;resize:none;border:none;outline:none;border-
   <header class="topbar">
     <div class="brand">
       <div class="logo"><svg viewBox="0 0 48 48" width="22" height="22" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32 24 12l14 20"/><path d="M18 32h12"/></svg></div>
-      <div><h1>Prop Challenge Control Panel</h1><p>2 simultaneous challenges · side-by-side columns · single-page fit</p></div>
+      <div><h1>Prop Challenge Control Panel</h1><p>3 simultaneous challenges · compact one-page layout</p></div>
     </div>
   </header>
 
   <section class="grid">
-    <!-- 50K Challenge - Day 3 -->
     <article class="panel card">
-      <span class="eyebrow">Challenge 1 · Day 3</span>
-      <h2>50K account totals $1,798 profit across 3 days with a $51,798 balance, a $49,798 minimum balance, and 5 MNQ while navigating bearish chop.</h2>
-      <p>Major swings tested discipline today, but reducing size and eliminating against-trend trades enabled recovery from heavy losses.</p>
+      <span class="eyebrow">TPT 50K Challenge · Day 1</span>
+      <h2>Reset after the hit: the TPT 50K challenge is back to Day 1 with $1,426.50 profit, a $51,426 balance, and a $49,426.50 minimum balance.</h2>
+      <p>This one now needs a clean rebuild. The priority is disciplined execution, smaller size, and keeping the account away from another emotional spiral.</p>
       <div class="summary">
-        <div class="stat"><label>Account balance</label><strong>$51,798</strong></div>
-        <div class="stat"><label>Minimum balance</label><strong>$49,798</strong></div>
-        <div class="stat"><label>Day 3 P&amp;L</label><strong style="color:var(--danger)">-$245</strong></div>
-        <div class="stat"><label>Avg size / trend</label><strong>5 MNQ</strong></div>
+        <div class="stat"><label>Account balance</label><strong>$51,426</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$49,426.50</strong></div>
+        <div class="stat"><label>Day 1 P&amp;L</label><strong>+$1,426.50</strong></div>
+        <div class="stat"><label>Avg size</label><strong>7 MNQ</strong></div>
       </div>
       <div class="summary">
-        <div class="stat"><label>Challenge type</label><strong>50K prop evaluation</strong></div>
-        <div class="stat"><label>Market posture</label><strong>Bearish chop</strong></div>
+        <div class="stat"><label>Challenge type</label><strong>TPT 50K eval</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Heavy chop</strong></div>
         <div class="stat"><label>Floor buffer</label><strong>$2,000</strong></div>
-        <div class="stat"><label>Session focus</label><strong>Trend following</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Stability first</strong></div>
       </div>
       <div class="progress">
-        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong>+$1,798 toward $3,000 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $1,202</span><span>Progress: 59.9%</span></div></div>
-        <div class="track"><div class="fill fill-danger" style="width:59.9%"></div></div>
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:5px">Target progress</span><strong>+$1,426.50 toward $3,000 target</strong></div><div class="meta"><span>5-day minimum required</span><span>Remaining target: $1,573.50</span><span>Progress: 47.5%</span></div></div>
+        <div class="track"><div class="fill fill-danger" style="width:47.5%"></div></div>
       </div>
-      <div class="pills"><span class="pill success">Size reduction</span><span class="pill danger">Bearish chop</span><span class="pill warn">Recovery made</span><span class="pill primary">No against-trend</span></div>
+      <div class="pills"><span class="pill danger">Reset day</span><span class="pill warn">Chop</span><span class="pill primary">Rebuild</span><span class="pill success">Small size</span></div>
     </article>
 
-    <!-- 25K Challenge - Day 3 -->
     <article class="panel card">
-      <span class="eyebrow">Challenge 2 · Day 3</span>
-      <h2>25K account totals $1,525 profit across 3 days with a $26,525 balance, a $25,025 minimum balance, and 5 MNQ. Target reached!</h2>
-      <p>Strong recovery day after the chop session. Need to trade 2 more days for PRO account approval (5-day minimum required).</p>
+      <span class="eyebrow">LUCID 50K Challenge · Day 1</span>
+      <h2>The new LUCID 50K challenge opened with $280 profit, a $50,280 balance, and a $48,280 minimum balance on Day 1.</h2>
+      <p>This one only requires two trading days, so the main task is to keep it efficient while avoiding the temptation to overtrade in the same chaotic conditions.</p>
       <div class="summary">
-        <div class="stat"><label>Account balance</label><strong>$26,525</strong></div>
-        <div class="stat"><label>Minimum balance</label><strong>$25,025</strong></div>
-        <div class="stat"><label>Day 3 P&amp;L</label><strong style="color:var(--good)">+$497.50</strong></div>
-        <div class="stat"><label>Avg size / trend</label><strong>5 MNQ</strong></div>
+        <div class="stat"><label>Account balance</label><strong>$50,280</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$48,280</strong></div>
+        <div class="stat"><label>Day 1 P&amp;L</label><strong>+$280</strong></div>
+        <div class="stat"><label>Avg size</label><strong>6 MNQ</strong></div>
+      </div>
+      <div class="summary">
+        <div class="stat"><label>Challenge type</label><strong>LUCID 50K eval</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Heavy chop</strong></div>
+        <div class="stat"><label>Floor buffer</label><strong>$2,000</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Short window</strong></div>
+      </div>
+      <div class="progress">
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:5px">Target progress</span><strong>+$280 toward $3,000 target</strong></div><div class="meta"><span>2 trading days required</span><span>Remaining target: $2,720</span><span>Progress: 9.3%</span></div></div>
+        <div class="track"><div class="fill fill-danger" style="width:9.3%"></div></div>
+      </div>
+      <div class="pills"><span class="pill success">Fresh start</span><span class="pill warn">Two-day eval</span><span class="pill primary">Stay selective</span><span class="pill danger">No forcing</span></div>
+    </article>
+
+    <article class="panel card">
+      <span class="eyebrow">25K Challenge · Day 4</span>
+      <h2>The 25K challenge added $13.50 on Day 4, bringing the account to $26,538.50 with a $25,038.50 minimum balance and 1 MNQ.</h2>
+      <p>Four of five trading days are complete, and this account should move to PRO after tomorrow if the final day stays clean.</p>
+      <div class="summary">
+        <div class="stat"><label>Account balance</label><strong>$26,538.50</strong></div>
+        <div class="stat"><label>Minimum balance</label><strong>$25,038.50</strong></div>
+        <div class="stat"><label>Day 4 P&amp;L</label><strong>+$13.50</strong></div>
+        <div class="stat"><label>Avg size</label><strong>1 MNQ</strong></div>
       </div>
       <div class="summary">
         <div class="stat"><label>Challenge type</label><strong>25K prop evaluation</strong></div>
-        <div class="stat"><label>Market posture</label><strong>Bearish chop</strong></div>
+        <div class="stat"><label>Market posture</label><strong>Heavy chop</strong></div>
         <div class="stat"><label>Floor buffer</label><strong>$1,500</strong></div>
-        <div class="stat"><label>Session focus</label><strong>Trend following</strong></div>
+        <div class="stat"><label>Session focus</label><strong>Protect the pass</strong></div>
       </div>
       <div class="progress">
-        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:6px">Target progress</span><strong style="color:var(--good)">+$1,525 toward $1,500 target ✓</strong></div><div class="meta"><span>5-day minimum required</span><span>2 days to PRO approval</span><span>Progress: 101.7%</span></div></div>
-        <div class="track"><div class="fill fill-success" style="width:101.7%"></div></div>
+        <div class="progresshead"><div><span class="eyebrow" style="margin-bottom:5px">Target progress</span><strong style="color:var(--good)">+$1,538.50 toward $1,500 target ✓</strong></div><div class="meta"><span>4/5 trading days complete</span><span>PRO after tomorrow</span><span>Progress: 102.6%</span></div></div>
+        <div class="track"><div class="fill fill-success" style="width:100%"></div></div>
       </div>
-      <div class="pills"><span class="pill success">Target reached</span><span class="pill success">2 days to PRO</span><span class="pill warn">Bearish chop</span><span class="pill primary">Trend follow</span></div>
+      <div class="pills"><span class="pill success">Target locked</span><span class="pill success">4 of 5 days</span><span class="pill warn">Low size</span><span class="pill primary">One more day</span></div>
     </article>
   </section>
 
   <section class="bottomgrid">
     <section class="bottom">
       <h3>Key Learnings</h3>
-      <div class="learn"><span>Top rule to review daily</span>Reduce size immediately when major swings hit, and eliminate all against-trend trades in bearish chop.</div>
+      <div class="learn"><span>Today's rule</span>Heavy chop plus CPI means survival mode: trade only when necessary, cut size quickly, and avoid trying to manufacture opportunity.</div>
       <ul class="list">
-        <li>Bearish chop with major swings requires instant size reduction to contain drawdown.</li>
-        <li>Against-trend trades in chop destroy accounts; wait for clear short-term trend alignment.</li>
-        <li>Recovery from heavy losses came from discipline, not aggression—smaller size preserved the challenge.</li>
-        <li>When the market swings violently, trend following with tight risk beats trying to catch tops/bottoms.</li>
+        <li>When CPI prints exactly on target, the market can still behave like chaos instead of clarity.</li>
+        <li>On a forced-trading day, the goal becomes damage control, not heroics.</li>
+        <li>Resetting the TPT 50K account was a clean decision after the hit, because preservation matters more than stubbornness.</li>
+        <li>The 25K challenge is nearly done, so tomorrow should be about protecting the pass rather than expanding risk.</li>
       </ul>
     </section>
     <section class="bottom">
       <h3>Daily Debrief</h3>
       <ul class="list debriefprompts">
-        <li>1. Which rules were broken today?</li>
-        <li>2. Describe today's prevalent behavior.</li>
-        <li>3. What did we learn?</li>
+        <li>1. What made today difficult?</li>
+        <li>2. What did the market actually do?</li>
+        <li>3. What was the right response?</li>
       </ul>
       <ul class="list debriefnotes">
-        <li>Tough day with major swings in the 50K account, but I recovered from heavy losses by reducing size.</li>
-        <li>Eliminating against-the-trend trades was the key to recovery in bearish chop conditions.</li>
-        <li>25K reached the profit target ($1,525 total)—now need 2 more trading days for PRO account approval.</li>
-        <li>Bearish chop demands patience; forcing against-trend trades is the fastest way to blow the challenge.</li>
+        <li>Complete madness after CPI came in right on target, which created heavy chop and made discipline unusually hard.</li>
+        <li>If not for the need to progress on challenges, the best decision would have been to stay out of the market entirely.</li>
+        <li>The TPT 50K reset was necessary after the big hit, and the new Day 1 setup gives a cleaner mental reset.</li>
+        <li>Overall, today was about staying alive in bad conditions, not about forcing edge where none was available.</li>
       </ul>
-      <textarea>Day 3 recap: bearish chop with major swings. 50K took heavy losses but recovered by cutting size and dropping all against-trend trades. Total: $1,798 (59.9% of $3,000). 25K had a strong +$497.50 day and hit the profit target with $1,525 total—2 more days to PRO approval. The lesson: size reduction + trend discipline saves challenges when swings hit.</textarea>
+      <textarea>Day recap: brutal CPI chop and a difficult emotional environment. I would have preferred not to trade, but challenge progress forced participation. TPT 50K reset to Day 1 after the hit, LUCID 50K started well, and the 25K is one day from PRO. The lesson: in madness, survival and restraint are the edge.</textarea>
     </section>
   </section>
 </div>
